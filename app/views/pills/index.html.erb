@@ -1,0 +1,214 @@
+<div>
+  <div>
+    <h1>
+      List of all pills
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new pill
+    </h2>
+
+    <form action="/insert_pill" method="post">
+      <div>
+        <label for="vitamin_id_box">
+          Vitamin
+        </label>
+
+        <input type="text" id="vitamin_id_box" name="query_vitamin_id">
+      </div>
+
+      <div>
+        <label for="owner_id_box">
+          Owner
+        </label>
+
+        <input type="text" id="owner_id_box" name="query_owner_id">
+      </div>
+
+      <div>
+        <label for="brand_box">
+          Brand
+        </label>
+
+        <input type="text" id="brand_box" name="query_brand">
+      </div>
+
+      <div>
+        <label for="description_box">
+          Description
+        </label>
+
+        <input type="text" id="description_box" name="query_description">
+      </div>
+
+      <div>
+        <label for="ingredients_box">
+          Ingredients
+        </label>
+
+        <input type="text" id="ingredients_box" name="query_ingredients">
+      </div>
+
+      <div>
+        <label for="quantity_box">
+          Quantity
+        </label>
+
+        <input type="text" id="quantity_box" name="query_quantity">
+      </div>
+
+      <div>
+        <label for="upc_box">
+          Upc
+        </label>
+
+        <input type="text" id="upc_box" name="query_upc">
+      </div>
+
+      <div>
+        <label for="order_more_box">
+          Order more
+        </label>
+
+        <input type="text" id="order_more_box" name="query_order_more">
+      </div>
+
+      <div>
+        <label for="pill_takens_count_box">
+          Pill takens count
+        </label>
+
+        <input type="text" id="pill_takens_count_box" name="query_pill_takens_count">
+      </div>
+
+      <button>
+        Create pill
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Vitamin
+        </th>
+
+        <th>
+          Owner
+        </th>
+
+        <th>
+          Brand
+        </th>
+
+        <th>
+          Description
+        </th>
+
+        <th>
+          Ingredients
+        </th>
+
+        <th>
+          Quantity
+        </th>
+
+        <th>
+          Upc
+        </th>
+
+        <th>
+          Order more
+        </th>
+
+        <th>
+          Pill takens count
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_pills.each do |a_pill| %>
+      <tr>
+        <td>
+          <%= a_pill.id %>
+        </td>
+
+        <td>
+          <%= a_pill.vitamin_id %>
+        </td>
+
+        <td>
+          <%= a_pill.owner_id %>
+        </td>
+
+        <td>
+          <%= a_pill.brand %>
+        </td>
+
+        <td>
+          <%= a_pill.description %>
+        </td>
+
+        <td>
+          <%= a_pill.ingredients %>
+        </td>
+
+        <td>
+          <%= a_pill.quantity %>
+        </td>
+
+        <td>
+          <%= a_pill.upc %>
+        </td>
+
+        <td>
+          <%= a_pill.order_more %>
+        </td>
+
+        <td>
+          <%= a_pill.pill_takens_count %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_pill.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_pill.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/pills/<%= a_pill.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

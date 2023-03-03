@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      List of all vitamins
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new vitamin
+    </h2>
+
+    <form action="/insert_vitamin" method="post">
+      <div>
+        <label for="amount_per_serving_box">
+          Amount per serving
+        </label>
+
+        <input type="text" id="amount_per_serving_box" name="query_amount_per_serving">
+      </div>
+
+      <button>
+        Create vitamin
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Amount per serving
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_vitamins.each do |a_vitamin| %>
+      <tr>
+        <td>
+          <%= a_vitamin.id %>
+        </td>
+
+        <td>
+          <%= a_vitamin.amount_per_serving %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_vitamin.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_vitamin.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/vitamins/<%= a_vitamin.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

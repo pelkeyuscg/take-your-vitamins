@@ -1,0 +1,191 @@
+<div>
+  <div>
+    <h1>
+      Pill #<%= @the_pill.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/pills">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_pill/<%= @the_pill.id %>">
+          Delete pill
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Vitamin
+      </dt>
+      <dd>
+        <%= @the_pill.vitamin_id %>
+      </dd>
+
+      <dt>
+        Owner
+      </dt>
+      <dd>
+        <%= @the_pill.owner_id %>
+      </dd>
+
+      <dt>
+        Brand
+      </dt>
+      <dd>
+        <%= @the_pill.brand %>
+      </dd>
+
+      <dt>
+        Description
+      </dt>
+      <dd>
+        <%= @the_pill.description %>
+      </dd>
+
+      <dt>
+        Ingredients
+      </dt>
+      <dd>
+        <%= @the_pill.ingredients %>
+      </dd>
+
+      <dt>
+        Quantity
+      </dt>
+      <dd>
+        <%= @the_pill.quantity %>
+      </dd>
+
+      <dt>
+        Upc
+      </dt>
+      <dd>
+        <%= @the_pill.upc %>
+      </dd>
+
+      <dt>
+        Order more
+      </dt>
+      <dd>
+        <%= @the_pill.order_more %>
+      </dd>
+
+      <dt>
+        Pill takens count
+      </dt>
+      <dd>
+        <%= @the_pill.pill_takens_count %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_pill.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_pill.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit pill
+    </h2>
+
+    <form action="/modify_pill/<%= @the_pill.id %>"  method="post" >
+      <div>
+        <label for="vitamin_id_box">
+          Vitamin
+        </label>
+
+        <input type="text" id="vitamin_id_box" name="query_vitamin_id" value="<%= @the_pill.vitamin_id %>">
+      </div>
+
+      <div>
+        <label for="owner_id_box">
+          Owner
+        </label>
+
+        <input type="text" id="owner_id_box" name="query_owner_id" value="<%= @the_pill.owner_id %>">
+      </div>
+
+      <div>
+        <label for="brand_box">
+          Brand
+        </label>
+
+        <input type="text" id="brand_box" name="query_brand" value="<%= @the_pill.brand %>">
+      </div>
+
+      <div>
+        <label for="description_box">
+          Description
+        </label>
+
+        <input type="text" id="description_box" name="query_description" value="<%= @the_pill.description %>">
+      </div>
+
+      <div>
+        <label for="ingredients_box">
+          Ingredients
+        </label>
+
+        <input type="text" id="ingredients_box" name="query_ingredients" value="<%= @the_pill.ingredients %>">
+      </div>
+
+      <div>
+        <label for="quantity_box">
+          Quantity
+        </label>
+
+        <input type="text" id="quantity_box" name="query_quantity" value="<%= @the_pill.quantity %>">
+      </div>
+
+      <div>
+        <label for="upc_box">
+          Upc
+        </label>
+
+        <input type="text" id="upc_box" name="query_upc" value="<%= @the_pill.upc %>">
+      </div>
+
+      <div>
+        <label for="order_more_box">
+          Order more
+        </label>
+
+        <input type="text" id="order_more_box" name="query_order_more" value="<%= @the_pill.order_more %>">
+      </div>
+
+      <div>
+        <label for="pill_takens_count_box">
+          Pill takens count
+        </label>
+
+        <input type="text" id="pill_takens_count_box" name="query_pill_takens_count" value="<%= @the_pill.pill_takens_count %>">
+      </div>
+
+      <button>
+        Update pill
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
