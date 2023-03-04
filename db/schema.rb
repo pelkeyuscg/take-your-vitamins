@@ -10,9 +10,54 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2023_03_03_211135) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "pill_takens", force: :cascade do |t|
+    t.integer "pill_id"
+    t.integer "quantity"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "pills", force: :cascade do |t|
+    t.integer "vitamin_id"
+    t.integer "owner_id"
+    t.string "brand"
+    t.string "description"
+    t.string "ingredients"
+    t.integer "quantity"
+    t.integer "upc"
+    t.string "order_more"
+    t.integer "pill_takens_count"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "prescriptions", force: :cascade do |t|
+    t.integer "frequency"
+    t.integer "pill_id"
+    t.integer "owner_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email"
+    t.string "password_digest"
+    t.string "username"
+    t.string "schedule"
+    t.integer "pills_count"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "vitamins", force: :cascade do |t|
+    t.integer "amount_per_serving"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
 end

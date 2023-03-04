@@ -1,6 +1,21 @@
 Rails.application.routes.draw do
   # Routes for the Prescription resource:
 
+  #root "pills#index"
+
+ # devise_for :users
+
+  #resources :pills
+  #resources :pill_takens
+  ##resources :vitamins
+
+  #get ":username/pills" => "user#pills", as: :liked_photos
+  #get ":username/prescriptions" => "users#prescriptions", as: :users_feed
+  #get ":username/pill_takens" => "users#pill_takens", as: :users_followers  
+  #get ":username/vitamins" => "users#following", as: :users_following  
+  
+  #get ":username" => "users#show", as: :user
+
   # CREATE
   post("/insert_prescription", { :controller => "prescriptions", :action => "create" })
           
