@@ -1,6 +1,7 @@
 <h1>Sign up</h1>
 
 <form action="/insert_user" method="post">
+<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
 
   <div>
     <label for="email_box">Email</label>
@@ -12,19 +13,7 @@
       
     <input type="text" id="username_box" name="query_username">
   </div>
-         
-  <div>
-    <label for="schedule_box">Schedule</label>
-      
-    <input type="text" id="schedule_box" name="query_schedule">
-  </div>
-         
-  <div>
-    <label for="pills_count_box">Pills count</label>
-      
-    <input type="text" id="pills_count_box" name="query_pills_count">
-  </div>
-    
+  
   <div>
     <label for="password_box">Password</label>
     <input id="password_box" name="query_password" placeholder="Choose a password..." type="password">

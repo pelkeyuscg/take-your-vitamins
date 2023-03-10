@@ -7,35 +7,34 @@ task sample_data: :environment do
 
     User.destroy_all
 
-    usernames << "alice"
+    @user.username << "alice"
 
 
-    usernames.each do |username|
+    @user.username.each do |username|
       name = Faker::Name.first_name
       User.create(
-        email: "#{username}@example.com",
+        email: "#{@user.username}@example.com",
         password: "password",
-        username: username.downcase,
+        username: @user.username.downcase,
         private: [true, false].sample
       )
     end
     
-    users = User.all
+#    users = User.all
 
-    users.each do |user|
-      rand(15).times do
-          photo = user.pill.create(
-            caption: Faker::Quote.jack_handey,
-            image: "https://robohash.org/#{rand(9999)}"
-          )
-      end
+#    users.each do |user|
+#      rand(15).times do
+#          pill = user.pill.create(
+#            caption: Faker::Quote.jack_handey,
+#            image: "https://robohash.org/#{rand(9999)}"
+#          )
+#      end
     end
   end
 
     ending = Time.now
-    p "It took #{(ending - starting).to_i} seconds to create sample data"
-    p "There are now #{User.count} users"
-    p "There are now #{pill.count} pills"
+#    p "It took #{(ending - starting).to_i} seconds to create sample data"
+#    p "There are now #{User.count} users"
+#    p "There are now #{pill.count} pills"
 
-  end
-
+#end
