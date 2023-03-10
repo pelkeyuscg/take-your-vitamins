@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   
   def force_user_sign_in
     if @current_user == nil
-      redirect_to(sign_in_url, { notice: "You have to sign in first." })
+      redirect_to(sign_in_url, notice: "You have to sign in first." )
     end
   end
 

@@ -4,7 +4,7 @@ class PrescriptionsController < ApplicationController
 
     @list_of_prescriptions = matching_prescriptions.order({ created_at: :desc })
 
-    render({ template: "prescriptions/index.html.erb" })
+    render template: "prescriptions/index.html.erb"
   end
 
   def show
@@ -14,7 +14,7 @@ class PrescriptionsController < ApplicationController
 
     @the_prescription = matching_prescriptions.at(0)
 
-    render({ template: "prescriptions/show.html.erb" })
+    render template: "prescriptions/show.html.erb" 
   end
 
   def create
@@ -25,9 +25,9 @@ class PrescriptionsController < ApplicationController
 
     if the_prescription.valid?
       the_prescription.save
-      redirect_to(prescriptions_url, { notice: "Prescription created successfully." })
+      redirect_to(prescriptions_url, notice: "Prescription created successfully." )
     else
-      redirect_to(prescriptions_url, { alert: the_prescription.errors.full_messages.to_sentence })
+      redirect_to(prescriptions_url, alert: the_prescription.errors.full_messages.to_sentence )
     end
   end
 
@@ -41,9 +41,9 @@ class PrescriptionsController < ApplicationController
 
     if the_prescription.valid?
       the_prescription.save
-      redirect_to(prescriptions_url(the_prescription.id), { notice: "Prescription updated successfully."} )
+      redirect_to(prescriptions_url(the_prescription.id), notice: "Prescription updated successfully.")
     else
-      redirect_to(prescriptions_url(the_prescription.id), { alert: the_prescription.errors.full_messages.to_sentence })
+      redirect_to(prescriptions_url(the_prescription.id), alert: the_prescription.errors.full_messages.to_sentence )
     end
   end
 
@@ -53,6 +53,6 @@ class PrescriptionsController < ApplicationController
 
     the_prescription.destroy
 
-    redirect_to(prescriptions_url, { notice: "Prescription deleted successfully."} )
+    redirect_to(prescriptions_url, notice: "Prescription deleted successfully." )
   end
 end
