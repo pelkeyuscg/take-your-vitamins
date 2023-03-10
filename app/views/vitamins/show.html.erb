@@ -6,13 +6,13 @@
 
     <div>
       <div>
-        <a href="/vitamins">
+        <a href="<%=vitamins_path%>">
           Go back
         </a>
       </div>
 
       <div>
-        <a href="/delete_vitamin/<%= @the_vitamin.id %>">
+        <a href="<%=delete_vitamin_path(@the_vitamin.id) %>">
           Delete vitamin
         </a>
       </div>
