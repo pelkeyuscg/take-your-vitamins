@@ -10,7 +10,7 @@ task sample_data: :environment do
 
   u = User.create(
     username: "alice",
-    password: "password",
+    password_digest: "password",
     password_confirmation: "password",
     email: "alice@example.com"
     )
@@ -18,7 +18,7 @@ task sample_data: :environment do
 
 #@user = User.new
 #@user.email = "alice@email.com"
-#@user.password_digest = "password"
+#@user.password = "password"
 #@user.username = "Alice"
 #@user.private = true
 #@user.schedule = 0
@@ -56,3 +56,4 @@ task sample_data: :environment do
 #    p "There are now #{pill.count} pills"
 
 end
+

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   # Routes for the Prescription resource:
 
   root "user_authentication#sign_in_form"

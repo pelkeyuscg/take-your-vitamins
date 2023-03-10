@@ -12,9 +12,14 @@
 #  updated_at      :datetime         not null
 #
 class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
+
   validates :email, :uniqueness => { :case_sensitive => false }
   validates :email, :presence => true
-  has_secure_password
+
 
   has_many  :pills, :class_name => "Pill", :foreign_key => "owner_id"
   has_many  :prescriptions, :class_name => "Prescription", :foreign_key => "owner_id", :dependent => :destroy
