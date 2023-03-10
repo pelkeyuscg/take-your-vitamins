@@ -73,9 +73,7 @@
         </td>
 
         <td>
-          <a href="<%=vitamins_path(a_vitamin.id) %>">
-            Show details
-          </a>
+        <%= link_to "Show details", vitamins_path(a_vitamin.id) %>
         </td>
       </tr>
       <% end %>

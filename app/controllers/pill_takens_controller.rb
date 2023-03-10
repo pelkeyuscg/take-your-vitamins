@@ -4,7 +4,6 @@ class PillTakensController < ApplicationController
 
     @list_of_pill_takens = matching_pill_takens.order({ created_at: :desc })
 
-    render template: "pill_takens/index.html.erb"
   end
 
   def show
@@ -14,7 +13,6 @@ class PillTakensController < ApplicationController
 
     @the_pill_taken = matching_pill_takens.at(0)
 
-    render template: "pill_takens/show.html.erb" 
   end
 
   def create

@@ -4,7 +4,6 @@ class VitaminsController < ApplicationController
 
     @list_of_vitamins = matching_vitamins.order({ created_at: :desc })
 
-    render template: "vitamins/index.html.erb" 
   end
 
   def show
@@ -14,7 +13,6 @@ class VitaminsController < ApplicationController
 
     @the_vitamin = matching_vitamins.at(0)
 
-    render template: "vitamins/show.html.erb" 
   end
 
   def create

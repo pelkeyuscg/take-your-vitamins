@@ -9,15 +9,11 @@
 
     <div>
       <div>
-        <a href="<%=pills_path%>">
-          Go back
-        </a>
+        <%= link_to "Go Back", pills_path%>">
       </div>
 
       <div>
-        <a href="<%= delete_pill_path(@the_pill.id) %>"> 
-          Delete pill
-        </a>
+        <%= link_to "Delete Pill", delete_pill_path(@the_pill.id) %>
       </div>
     </div>
 

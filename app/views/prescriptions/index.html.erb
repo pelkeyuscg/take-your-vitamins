@@ -14,7 +14,7 @@
       Add a new prescription
     </h2>
 
-    <form action="<%new_prescription_path%>" method="post">
+    <form action="<% new_prescription_path %>" method="post">
       <div>
         <label for="frequency_box">
           Frequency
@@ -105,9 +105,7 @@
         </td>
 
         <td>
-          <a href="<%=prescriptions_path(a_prescription.id) %>">
-            Show details
-          </a>
+            <%= link_to "Show Details", prescriptions_path(a_prescription.id) %>
         </td>
       </tr>
       <% end %>

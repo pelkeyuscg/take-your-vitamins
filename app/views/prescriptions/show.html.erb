@@ -6,15 +6,11 @@
 
     <div>
       <div>
-        <a href="<%=prescriptions_path%>">
-          Go back
-        </a>
+        <%= link_to "Go Back", prescriptions_path%>
       </div>
 
       <div>
-        <a href="<%=delete_prescription_path(@the_prescription.id) %>">
-          Delete prescription
-        </a>
+        <%= link_to "Delete Prescription", delete_prescription_path(@the_prescription.id) %>
       </div>
     </div>
 

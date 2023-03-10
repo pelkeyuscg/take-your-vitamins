@@ -4,7 +4,6 @@ class PillsController < ApplicationController
 
     @list_of_pills = matching_pills.order({ created_at: :desc })
 
-    render template: "pills/index.html.erb"
   end
 
   def show
@@ -14,7 +13,6 @@ class PillsController < ApplicationController
 
     @the_pill = matching_pills.at(0)
 
-    render template: "pills/show.html.erb" 
   end
 
   def create
@@ -65,6 +63,6 @@ class PillsController < ApplicationController
 
     the_pill.destroy
 
-    redirect_to(pills_url, notice: "Pill deleted successfully.")
+    redirect_to(pills_url, notice: "Pill deleted successfully." )
   end
 end

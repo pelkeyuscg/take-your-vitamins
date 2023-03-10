@@ -4,7 +4,6 @@ class PrescriptionsController < ApplicationController
 
     @list_of_prescriptions = matching_prescriptions.order({ created_at: :desc })
 
-    render template: "prescriptions/index.html.erb"
   end
 
   def show
@@ -14,7 +13,6 @@ class PrescriptionsController < ApplicationController
 
     @the_prescription = matching_prescriptions.at(0)
 
-    render template: "prescriptions/show.html.erb" 
   end
 
   def create
