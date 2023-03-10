@@ -7,13 +7,13 @@ class ApplicationController < ActionController::Base
   def load_current_user
     the_id = session[:user_id]
     
-    @current_user = User.where({ :id => the_id }).first
+    @current_user = User.where({ id: the_id }).first
 
   end
   
   def force_user_sign_in
     if @current_user == nil
-      redirect_to("/user_sign_in", { :notice => "You have to sign in first." })
+      redirect_to(sign_in_url, { notice: "You have to sign in first." })
     end
   end
 

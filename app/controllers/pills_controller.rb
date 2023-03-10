@@ -2,7 +2,7 @@ class PillsController < ApplicationController
   def index
     matching_pills = Pill.all
 
-    @list_of_pills = matching_pills.order({ :created_at => :desc })
+    @list_of_pills = matching_pills.order({ created_at: :desc })
 
     render({ :template => "pills/index.html.erb" })
   end
@@ -10,11 +10,11 @@ class PillsController < ApplicationController
   def show
     the_id = params.fetch("path_id")
 
-    matching_pills = Pill.where({ :id => the_id })
+    matching_pills = Pill.where({ id: the_id })
 
     @the_pill = matching_pills.at(0)
 
-    render({ :template => "pills/show.html.erb" })
+    render({ template: "pills/show.html.erb" })
   end
 
   def create
@@ -31,15 +31,15 @@ class PillsController < ApplicationController
 
     if the_pill.valid?
       the_pill.save
-      redirect_to("/pills", { :notice => "Pill created successfully." })
+      redirect_to(pills_url, { notice: "Pill created successfully." })
     else
-      redirect_to("/pills", { :alert => the_pill.errors.full_messages.to_sentence })
+      redirect_to(pills_url, { alert: the_pill.errors.full_messages.to_sentence })
     end
   end
 
   def update
     the_id = params.fetch("path_id")
-    the_pill = Pill.where({ :id => the_id }).at(0)
+    the_pill = Pill.where({ id: the_id }).at(0)
 
     the_pill.vitamin_id = params.fetch("query_vitamin_id")
     the_pill.owner_id = params.fetch("query_owner_id")
@@ -53,18 +53,18 @@ class PillsController < ApplicationController
 
     if the_pill.valid?
       the_pill.save
-      redirect_to("/pills/#{the_pill.id}", { :notice => "Pill updated successfully."} )
+      redirect_to(pills_url(the_pill.id), { notice: "Pill updated successfully."} )
     else
-      redirect_to("/pills/#{the_pill.id}", { :alert => the_pill.errors.full_messages.to_sentence })
+      redirect_to(pills_url(the_pill.id), { alert: the_pill.errors.full_messages.to_sentence })
     end
   end
 
   def destroy
     the_id = params.fetch("path_id")
-    the_pill = Pill.where({ :id => the_id }).at(0)
+    the_pill = Pill.where({ id: the_id }).at(0)
 
     the_pill.destroy
 
-    redirect_to("/pills", { :notice => "Pill deleted successfully."} )
+    redirect_to(pills_url, { notice: "Pill deleted successfully."} )
   end
 end
