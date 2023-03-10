@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # Routes for the Prescription resource:
 
-  #root "pills#index"
+  root "user_authentication#sign_in_form"
 
  # devise_for :users
 
@@ -17,103 +17,102 @@ Rails.application.routes.draw do
   #get ":username" => "users#show", as: :user
 
   # CREATE
-  post("/insert_prescription", { :controller => "prescriptions", :action => "create" })
+  post "/insert_prescription" => "prescriptions#create" 
           
   # READ
-  get("/prescriptions", { :controller => "prescriptions", :action => "index" })
+  get "/prescriptions" => "prescriptions#index" 
   
-  get("/prescriptions/:path_id", { :controller => "prescriptions", :action => "show" })
+  get "/prescriptions/:path_id" => "prescriptions#show"
   
   # UPDATE
-  
-  post("/modify_prescription/:path_id", { :controller => "prescriptions", :action => "update" })
+  post "/modify_prescription/:path_id" => "prescriptions#update"
   
   # DELETE
-  get("/delete_prescription/:path_id", { :controller => "prescriptions", :action => "destroy" })
+  get "/delete_prescription/:path_id" => "prescriptions#destroy"
 
   #------------------------------
 
   # Routes for the Pill taken resource:
 
   # CREATE
-  post("/insert_pill_taken", { :controller => "pill_takens", :action => "create" })
+  post "/insert_pill_taken" => "pill_takens#create"
           
   # READ
-  get("/pill_takens", { :controller => "pill_takens", :action => "index" })
+  get "/pill_takens" => "pill_takens#index"
   
-  get("/pill_takens/:path_id", { :controller => "pill_takens", :action => "show" })
+  get "/pill_takens/:path_id" => "pill_takens#show"
   
   # UPDATE
   
-  post("/modify_pill_taken/:path_id", { :controller => "pill_takens", :action => "update" })
+  post "/modify_pill_taken/:path_id" => "pill_takens#update"
   
   # DELETE
-  get("/delete_pill_taken/:path_id", { :controller => "pill_takens", :action => "destroy" })
+  get "/delete_pill_taken/:path_id" => "pill_takens#destroy"
 
   #------------------------------
 
   # Routes for the Vitamin resource:
 
   # CREATE
-  post("/insert_vitamin", { :controller => "vitamins", :action => "create" })
+  post "/insert_vitamin" => "vitamins#create"
           
   # READ
-  get("/vitamins", { :controller => "vitamins", :action => "index" })
+  get "/vitamins" => "vitamins#index"
   
-  get("/vitamins/:path_id", { :controller => "vitamins", :action => "show" })
+  get "/vitamins/:path_id" => "vitamins#show"
   
   # UPDATE
   
-  post("/modify_vitamin/:path_id", { :controller => "vitamins", :action => "update" })
+  post "/modify_vitamin/:path_id" => "vitamins#update"
   
   # DELETE
-  get("/delete_vitamin/:path_id", { :controller => "vitamins", :action => "destroy" })
+  get "/delete_vitamin/:path_id" => "vitamins#destroy"
 
   #------------------------------
 
   # Routes for the Pill resource:
 
   # CREATE
-  post("/insert_pill", { :controller => "pills", :action => "create" })
+  post "/insert_pill" => "pills#create"
           
   # READ
-  get("/pills", { :controller => "pills", :action => "index" })
+  get "/pills" => "pills#index"
   
-  get("/pills/:path_id", { :controller => "pills", :action => "show" })
+  get "/pills/:path_id" => "pills#show"
   
   # UPDATE
   
-  post("/modify_pill/:path_id", { :controller => "pills", :action => "update" })
+  post "/modify_pill/:path_id" => "pills#update"
   
   # DELETE
-  get("/delete_pill/:path_id", { :controller => "pills", :action => "destroy" })
+  get "/delete_pill/:path_id" => "pills#destroy"
 
   #------------------------------
 
   # Routes for the User account:
 
   # SIGN UP FORM
-  get("/user_sign_up", { :controller => "user_authentication", :action => "sign_up_form" })        
+  get "/user_sign_up" => "user_authentication#sign_up_form"       
   # CREATE RECORD
-  post("/insert_user", { :controller => "user_authentication", :action => "create"  })
+  post "/insert_user" => "user_authentication#create" 
       
   # EDIT PROFILE FORM        
-  get("/edit_user_profile", { :controller => "user_authentication", :action => "edit_profile_form" })       
+  get "/edit_user_profile" => "user_authentication#edit_profile_form"      
   # UPDATE RECORD
-  post("/modify_user", { :controller => "user_authentication", :action => "update" })
+  post "/modify_user" => "user_authentication#update"
   
   # DELETE RECORD
-  get("/cancel_user_account", { :controller => "user_authentication", :action => "destroy" })
+  get "/cancel_user_account" => "user_authentication#destroy"
 
   # ------------------------------
 
   # SIGN IN FORM
-  get("/user_sign_in", { :controller => "user_authentication", :action => "sign_in_form" })
+  get "/user_sign_in" => "user_authentication#sign_in_form"
   # AUTHENTICATE AND STORE COOKIE
-  post("/user_verify_credentials", { :controller => "user_authentication", :action => "create_cookie" })
+  post "/user_verify_credentials" => "user_authentication#create_cookie"
   
   # SIGN OUT        
-  get("/user_sign_out", { :controller => "user_authentication", :action => "destroy_cookies" })
+  get "/user_sign_out" => "user_authentication#destroy_cookies"
              
   #------------------------------
 
