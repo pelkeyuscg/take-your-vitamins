@@ -1,6 +1,6 @@
 <h1>Take Your Vitamins Sign in</h1>
 
-<form action="/user_verify_credentials" method="post">
+<form action="<%=create_cookie_path%>" method="post">
 <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
   <div>
     <label for="email_box">Email</label>

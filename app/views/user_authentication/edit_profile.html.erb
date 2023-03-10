@@ -4,7 +4,7 @@
   </h5>
 
   <div>
-    <form action="/modify_user" method="post">
+    <form action="<%=modify_user_path%>" method="post">
       <div>
         <label for="email_box">Email</label>
         <input id="email_box" name="query_email" value="<%= @current_user.email %>">

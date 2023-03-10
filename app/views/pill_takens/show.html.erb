@@ -6,7 +6,7 @@
 
     <div>
       <div>
-        <a href="/pill_takens">
+        <a href="<%=pills_taken_path%>">
           Go back
         </a>
       </div>
@@ -59,7 +59,7 @@
       Edit pill taken
     </h2>
 
-    <form action="/modify_pill_taken/<%= @the_pill_taken.id %>"  method="post" >
+    <form action="<%=modify_pill_taken_path(@the_pill_taken.id) %>"  method="post" >
       <div>
         <label for="pill_id_box">
           Pill

@@ -6,7 +6,7 @@
 
     <div>
       <div>
-        <a href="/prescriptions">
+        <a href="<%=prescriptions_path%>">
           Go back
         </a>
       </div>
@@ -66,7 +66,7 @@
       Edit prescription
     </h2>
 
-    <form action="/modify_prescription/<%= @the_prescription.id %>"  method="post" >
+    <form action="<%=edit_prescription_path(@the_prescription.id) %>"  method="post" >
       <div>
         <label for="frequency_box">
           Frequency

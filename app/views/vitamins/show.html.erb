@@ -52,7 +52,7 @@
       Edit vitamin
     </h2>
 
-    <form action="/modify_vitamin/<%= @the_vitamin.id %>"  method="post" >
+    <form action="<%edit_pill_path(@the_vitamin.id) %>"  method="post" >
       <div>
         <label for="amount_per_serving_box">
           Amount per serving
