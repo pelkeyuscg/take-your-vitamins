@@ -6,5 +6,6 @@ class Pill < ApplicationRecord
   
   belongs_to :vitamin, :required => true, :class_name => "Vitamin", :foreign_key => "vitamin_id"
   
-  validates :vitamin_id, :presence => true
+  validates :vitamin_id, presence: true
+  validates :quantity, presence: true
 end

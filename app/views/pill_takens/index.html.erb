@@ -11,91 +11,83 @@
 <div>
   <div>
     <h2>
-      Add a new pill taken
+      What pill did you take?
     </h2>
 
-    <form action="<%=new_pill_taken_path%>" method="post">
+    <%= form_with(url: new_pill_taken_path) do %>
       <div>
-        <label for="pill_id_box">
-          Pill
-        </label>
-
-        <input type="text" id="pill_id_box" name="query_pill_id">
+        <%= label_tag :pill_box, "Pill" %>
+        <%= text_field_tag :query_pill_id %>
       </div>
-
       <div>
-        <label for="quantity_box">
-          Quantity
-        </label>
-
-        <input type="text" id="quantity_box" name="query_quantity">
+        <%= label_tag :quantity_box, "Quantity"%>
+        <%= text_field_tag :query_quantity %>
       </div>
-
-      <button>
-        Create pill taken
-      </button>
-    </form>
+        <button>
+          Create pill taken
+        </button>
   </div>
 </div>
 
-<hr>
-<div>
-  <div>
-    <table border="1">
-      <tr>
-        <th>
-          ID
-        </th>
+  <hr>
+    <div>
+      <div>
+        <table border="1">
+          <tr>
+            <th>
+              ID
+            </th>
 
-        <th>
-          Pill
-        </th>
+            <th>
+              Pill
+            </th>
 
-        <th>
-          Quantity
-        </th>
+            <th>
+              Quantity
+            </th>
 
-        <th>
-          Created at
-        </th>
+            <th>
+              Created at
+            </th>
 
-        <th>
-          Updated at
-        </th>
+            <th>
+              Updated at
+            </th>
 
-        <th>
-        </th>
-      </tr>
+            <th>
+            </th>
+          </tr>
 
-      <% @list_of_pill_takens.each do |a_pill_taken| %>
-      <tr>
-        <td>
-          <%= a_pill_taken.id %>
-        </td>
+          <% @list_of_pill_takens.each do |a_pill_taken| %>
+            <tr>
+              <td>
+                <%= a_pill_taken.id %>
+              </td>
 
-        <td>
-          <%= a_pill_taken.pill_id %>
-        </td>
+              <td>
+                <%= a_pill_taken.pill_id %>
+              </td>
 
-        <td>
-          <%= a_pill_taken.quantity %>
-        </td>
+              <td>
+                <%= a_pill_taken.quantity %>
+              </td>
 
-        <td>
-          <%= time_ago_in_words(a_pill_taken.created_at) %> ago
-        </td>
-        <td>
-          <%= time_ago_in_words(a_pill_taken.updated_at) %> ago
-        </td>
+              <td>
+                <%= time_ago_in_words(a_pill_taken.created_at) %> ago
+              </td>
+              <td>
+                <%= time_ago_in_words(a_pill_taken.updated_at) %> ago
+              </td>
 
-        <td>
-          <%= link_to "Show Details", pills_taken_path(a_pill_taken.id) %>
-        </td>
+              <td>
+                <%= link_to "Show Details", pills_taken_path(a_pill_taken.id) %>
+              </td>
 
-      </tr>
-      <% end %>
-    </table>
-  </div>
-</div>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
+  <hr>
 
-<hr>
+<% end %>
