@@ -11,7 +11,7 @@
   <% end %>
   <% end %>
   <div>
-    <form action="<%=modify_user_path%>" method="post">
+    <%= form_with(url: edit_user_registration_path) do %>
               
       <div>
         <label for="email_box">Email</label>
@@ -54,6 +54,6 @@
       <button>
         Update account
       </button>
-    </form>
+    <% end %>
   </div>
 </div>

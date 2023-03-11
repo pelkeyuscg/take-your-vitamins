@@ -4,7 +4,7 @@
   </h5>
 
   <div>
-    <form action="<%=modify_user_path%>" method="post">
+    <%= form_with(url: edit_user_registration_path) do %>  
       <div>
         <label for="username_box">Username</label>
         <input id="username_box" name="query_username" value="<%= @current_user.username %>">
@@ -31,6 +31,6 @@
       <button>
         Update account
       </button>
-    </form>
+    <% end %>
   </div>
 </div>
