@@ -13,8 +13,8 @@
     <h2>
       Add a new prescription
     </h2>
-
-    <form action="<% new_prescription_path %>" method="post">
+    <%= form_with(url: new_prescription_path) do %>
+    
       <div>
         <label for="frequency_box">
           Frequency
@@ -42,7 +42,7 @@
       <button>
         Create prescription
       </button>
-    </form>
+    <% end %>
   </div>
 </div>
 

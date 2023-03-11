@@ -15,8 +15,8 @@
     <h2>
       Add a new pill
     </h2>
+    <%= form_with(url: new_pill_path) do %>
 
-    <form action="<%=new_pill_path%>" method="post">
       <div>
         <label for="vitamin_id_box">
           Vitamin
@@ -92,10 +92,9 @@
       <button>
         Create pill
       </button>
-    </form>
+    <% end %>
   </div>
 </div>
-
 <hr>
 <div>
   <div>

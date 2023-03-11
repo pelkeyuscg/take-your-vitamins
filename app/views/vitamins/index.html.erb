@@ -10,11 +10,19 @@
 
 <div>
   <div>
-    <h2>
+    <h3>
       Add a new vitamin
-    </h2>
+    </h3>
 
-    <form action="<%=new_vitamin_path%>" method="post">
+    <%=form_with(url:new_vitamin_path, method: :patch) do %>
+    <% end %>
+      <div>
+        <label for="name">
+          Vitamin
+        </label>
+
+        <input type="text" id="name" name="query_name">
+      </div>
 
       <div>
         <label for="amount_per_serving_box">

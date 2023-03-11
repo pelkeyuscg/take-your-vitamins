@@ -10,9 +10,7 @@
       </div>
 
       <div>
-        <a href="<%=delete_vitamin_path(@the_vitamin.id) %>">
-          Delete vitamin
-        </a>
+        <%= link_to "Delete vitamin", delete_vitamin_path(@the_vitamin.id) %>
       </div>
     </div>
 

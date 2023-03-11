@@ -27,4 +27,6 @@ class User < ApplicationRecord
   validates :username, :length => { :minimum => 5, :maximum => 20 }
   validates :username, :presence => true
   validates :username, :uniqueness => true
+
+  scope :past_week, -> { where(created_at: 1.week.ago...) }
 end
