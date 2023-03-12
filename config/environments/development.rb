@@ -76,4 +76,27 @@ Rails.application.configure do
 
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
+
+  application_host = ENV.fetch("GITPOD_WORKSPACE_URL").gsub("https://", "https://3000-")
+
+  config.action_mailer.default_url_options = { host: application_host }
+
+  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.perform_deliveries = true
+
+  config.action_mailer.raise_delivery_errors = true
+
+  config.action_mailer.smtp_settings = {
+
+    address: 'smtp.mailgun.org',
+    port: 2525,
+    user_name: 'postmaster@mg.appdevproject.com',
+    domain: 'mg.appdevproject.com',
+    password: 'd2e90ea2f40cba8bee1ff0d8ff2f7889-d1a07e51-a11ef03a',
+    authentication: 'plain',
+    enable_starttls_auto: true,
+    open_timeout: 5,
+    read_timeout: 5
+  }
 end

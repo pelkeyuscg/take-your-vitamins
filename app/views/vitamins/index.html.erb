@@ -1,0 +1,77 @@
+<div>
+  <div>
+    <h1>
+      List of all vitamins
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h3>
+      Add a new vitamin second commit
+    </h3>
+
+    <%=form_with(url:new_vitamin_path) do %>
+      <div>
+        <%= label_tag :name %>
+        <input type="text" id="name" name="name">
+      </div>
+
+      <div>
+        <%= label_tag :amount_per_serving, "MG per serving" %>
+        <input type="text" id="amount_per_serving" name="amount_per_serving">
+      </div>
+
+      <button>
+        Create vitamin
+      </button>
+    <% end %>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          Vitamin
+        </th>
+        
+        <th>
+          Name
+        </th>
+
+        <th>
+          MG per serving
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @vitamins.each do |vitamin| %>
+      <tr>
+        <td>
+          <%= vitamin.id %>
+        </td>
+        <td>
+          <%= vitamin.name %>
+        </td>
+        <td>
+          <%= vitamin.amount_per_serving %>
+        </td>
+
+        <td>
+        <%= link_to "Show details", vitamin_path(vitamin.id) %>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

@@ -1,0 +1,18 @@
+# == Schema Information
+#
+# Table name: pill_takens
+#
+#  id         :bigint           not null, primary key
+#  pill_id    :integer
+#  quantity   :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+one:
+  pill_id: 1
+  quantity: 1
+
+two:
+  pill_id: 1
+  quantity: 1

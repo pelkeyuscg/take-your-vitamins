@@ -1,0 +1,107 @@
+<div>
+  <div>
+    <h1>
+      List of all prescriptions
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new prescription
+    </h2>
+    <%= form_with(url: new_prescription_path) do %>
+    
+      <div>
+        <%= label_tag :frequency %>
+        <input type="text" id="frequency" name="frequency">
+      </div>
+
+      <div>
+        <%= label_tag :pill_id %>
+        <input type="text" id="pill_id" name="pill_id">
+      </div>
+
+      <div>
+        <%= label_tag :owner_id %>
+        <input type="text" id="owner_id" name="owner_id">
+      </div>
+
+      <button>
+        Create prescription
+      </button>
+    <% end %>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Frequency
+        </th>
+
+        <th>
+          Pill
+        </th>
+
+        <th>
+          Owner
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_prescriptions.each do |prescription| %>
+      <tr>
+        <td>
+          <%= prescription.id %>
+        </td>
+
+        <td>
+          <%= prescription.frequency %>
+        </td>
+
+        <td>
+          <%= prescription.pill_id %>
+        </td>
+
+        <td>
+          <%= prescription.owner_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(prescription.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(prescription.updated_at) %> ago
+        </td>
+
+        <td>
+          <%= link_to "Show Details", prescription_path(prescription.id) %>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

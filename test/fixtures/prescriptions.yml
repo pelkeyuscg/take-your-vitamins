@@ -1,0 +1,21 @@
+# == Schema Information
+#
+# Table name: prescriptions
+#
+#  id         :bigint           not null, primary key
+#  frequency  :integer
+#  pill_id    :integer
+#  owner_id   :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+one:
+  frequency: 1
+  pill_id: 1
+  owner_id: 1
+
+two:
+  frequency: 1
+  pill_id: 1
+  owner_id: 1

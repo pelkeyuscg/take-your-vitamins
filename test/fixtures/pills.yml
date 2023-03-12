@@ -1,0 +1,39 @@
+# == Schema Information
+#
+# Table name: pills
+#
+#  id                :bigint           not null, primary key
+#  vitamin_id        :integer
+#  owner_id          :integer
+#  brand             :string
+#  description       :string
+#  ingredients       :string
+#  quantity          :integer
+#  upc               :integer
+#  order_more        :string
+#  pill_takens_count :integer
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#
+
+one:
+  vitamin_id: 1
+  owner_id: 1
+  brand: MyString
+  description: MyString
+  ingredients: MyString
+  quantity: 1
+  upc: 1
+  order_more: MyString
+  pill_takens_count: 1
+
+two:
+  vitamin_id: 1
+  owner_id: 1
+  brand: MyString
+  description: MyString
+  ingredients: MyString
+  quantity: 1
+  upc: 1
+  order_more: MyString
+  pill_takens_count: 1

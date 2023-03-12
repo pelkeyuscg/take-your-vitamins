@@ -1,0 +1,15 @@
+# == Schema Information
+#
+# Table name: vitamins
+#
+#  id                 :bigint           not null, primary key
+#  amount_per_serving :integer
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#
+
+one:
+  amount_per_serving: 1
+
+two:
+  amount_per_serving: 1

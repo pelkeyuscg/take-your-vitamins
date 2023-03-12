@@ -1,0 +1,76 @@
+<div>
+  <div>
+    <h1>
+      Pill taken #<%= @pill_taken.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <%= link_to "Go back", pills_taken_path %>">
+      </div>
+
+      <div>
+        <%= link_to "Delete Pill Taken", delete_pill_taken_path(@pill_taken.id) %>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Pill
+      </dt>
+      <dd>
+        <%= @pill_taken.pill_id %>
+      </dd>
+
+      <dt>
+        Quantity
+      </dt>
+      <dd>
+        <%= @pill_taken.quantity %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@pill_taken.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@pill_taken.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit pill taken
+    </h2>
+      <%= form_with(url: modify_pill_taken_path(@pill_taken.id)) do %>
+
+      <div>
+        <%= label_tag :pill %>
+        <input type="text" id="pill_id" name="pill_id" value="<%= @pill_taken.pill_id %>">
+      </div>
+
+      <div>
+        <%= label_tag :quantity %>
+        <input type="text" id="quantity" name="quantity" value="<%= @pill_taken.quantity %>">
+      </div>
+
+      <button>
+        Update pill taken
+      </button>
+  </div>
+</div>
+
+<hr>
+<% end %>

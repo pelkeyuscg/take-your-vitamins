@@ -1,0 +1,87 @@
+<div>
+  <div>
+    <h1>
+      Prescription #<%= @prescription.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <%= link_to "Go Back", prescriptions_path%>
+      </div>
+
+      <div>
+        <%= link_to "Delete Prescription", delete_prescription_path(@prescription.id) %>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Frequency
+      </dt>
+      <dd>
+        <%= @prescription.frequency %>
+      </dd>
+
+      <dt>
+        Pill
+      </dt>
+      <dd>
+        <%= @prescription.pill_id %>
+      </dd>
+
+      <dt>
+        Owner
+      </dt>
+      <dd>
+        <%= @prescription.owner_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@prescription.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@prescription.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit prescription
+    </h2>
+    <%= form_with(url: edit_prescription_path(@prescription.id), method: :post) do %>
+      <div>
+        <%= label_tag :frequency %>
+        <input type="text" id="frequency" name="frequency" value="<%= @prescription.frequency %>">
+      </div>
+
+      <div>
+        <%= label_tag :pill_id %>
+        <input type="text" id="pill_id" name="pill_id" value="<%= @prescription.pill_id %>">
+      </div>
+
+      <div>
+        <%= label_tag :owner_id %>
+        <input type="text" id="owner_id" name="owner_id" value="<%= @prescription.owner_id %>">
+      </div>
+
+      <button>
+        Update prescription
+      </button>
+    <% end %>
+  </div>
+</div>
+
+<hr>

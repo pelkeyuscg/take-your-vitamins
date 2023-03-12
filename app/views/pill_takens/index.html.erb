@@ -1,0 +1,93 @@
+<div>
+  <div>
+    <h1>
+      List of all pills taken
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      What pill did you take?
+    </h2>
+
+    <%= form_with(url: new_pill_taken_path) do %>
+      <div>
+        <%= label_tag :pill %>
+        <%= text_field_tag :pill_id %>
+      </div>
+      <div>
+        <%= label_tag :quantity %>
+        <%= text_field_tag :quantity %>
+      </div>
+        <button>
+          Create pill taken
+        </button>
+  </div>
+</div>
+
+  <hr>
+    <div>
+      <div>
+        <table border="1">
+          <tr>
+            <th>
+              ID
+            </th>
+
+            <th>
+              Pill
+            </th>
+
+            <th>
+              Quantity
+            </th>
+
+            <th>
+              Created at
+            </th>
+
+            <th>
+              Updated at
+            </th>
+
+            <th>
+            </th>
+          </tr>
+
+          <% @pill_takens.each do |pill_taken| %>
+            <tr>
+              <td>
+                <%= pill_taken.id %>
+              </td>
+
+              <td>
+                <%= pill_taken.pill_id %>
+              </td>
+
+              <td>
+                <%= pill_taken.quantity %>
+              </td>
+
+              <td>
+                <%= time_ago_in_words(pill_taken.created_at) %> ago
+              </td>
+              <td>
+                <%= time_ago_in_words(pill_taken.updated_at) %> ago
+              </td>
+
+              <td>
+                <%= link_to "Show Details", pills_taken_path(pill_taken.id) %>
+              </td>
+
+            </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
+  <hr>
+
+<% end %>

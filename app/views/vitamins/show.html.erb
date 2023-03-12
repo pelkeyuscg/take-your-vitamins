@@ -1,0 +1,65 @@
+<div>
+  <div>
+    <h1>
+      Vitamin #<%= @vitamin.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <%= link_to "Go Back", vitamins_path %>
+      </div>
+
+      <div>
+        <%= link_to "Delete vitamin", vitamin_path(@vitamin.id) %>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Amount per serving
+      </dt>
+      <dd>
+        <%= @vitamin.amount_per_serving %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@vitamin.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@vitamin.updated_at) %> ago
+      </dd>
+    </dl>
+    
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit vitamin
+    </h2>
+    <%=form_with(url:edit_pill_path(@vitamin.id)) do %>
+      <div>
+        <div>
+          <%= label_tag :amount_per_serving, "MG per serving" %>
+          <input type="text" id="amount_per_serving" name="amount_per_serving">
+        </div>
+      </div>
+      <% end %>
+      <button>
+        Update vitamin
+      </button>
+    </div>
+</div>
+
+<hr>
