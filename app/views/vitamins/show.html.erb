@@ -6,7 +6,7 @@
 
     <div>
       <div>
-      <%= link_to "Go Back", vitamins_path %>
+        <%= link_to "Go Back", vitamins_path %>
       </div>
 
       <div>
@@ -47,20 +47,16 @@
     <h2>
       Edit vitamin
     </h2>
-
-    <form action="<%edit_pill_path(@the_vitamin.id) %>"  method="post" >
+    <%=form_with(url:edit_pill_path(@the_vitamin.id) method: :post) do %>
       <div>
-        <label for="amount_per_serving_box">
-          Amount per serving
-        </label>
-
-        <input type="text" id="amount_per_serving_box" name="query_amount_per_serving" value="<%= @the_vitamin.amount_per_serving %>">
-      </div>
-
+        <div>
+          <%= label_tag :amount_per_serving_box, "MG per serving" %>
+          <input type="text" id="amount_per_serving_box" name="query_amount_per_serving">
+        </div>
       <button>
         Update vitamin
       </button>
-    </form>
+    <% end %>
   </div>
 </div>
 

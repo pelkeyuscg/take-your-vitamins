@@ -1,53 +1,43 @@
 class PillTakensController < ApplicationController
   def index
-    matching_pill_takens = PillTaken.all
-
-    @list_of_pill_takens = matching_pill_takens.order({ created_at: :desc })
-
+    @pill_takens = PillTaken.order( created_at: :desc )
   end
 
   def show
-    the_id = params.fetch("path_id")
-
-    matching_pill_takens = PillTaken.where({ id: the_id })
-
-    @the_pill_taken = matching_pill_takens.at(0)
-
+    @pill_takens = PillTaken.find(params.fetch(:id))
   end
 
   def create
-    the_pill_taken = PillTaken.new
-    the_pill_taken.pill_id = params.fetch("query_pill_id")
-    the_pill_taken.quantity = params.fetch("query_quantity")
+    @pill_takens = PillTaken.new
+    @pill_takens.pill_id = params.fetch("query_pill_id")
+    @pill_takens.quantity = params.fetch("query_quantity")
 
-    if the_pill_taken.valid?
-      the_pill_taken.save
+    if @pill_takens.valid?
+      @pill_takens.save
       redirect_to(pills_taken_url, notice: "Pill taken created successfully." )
     else
-      redirect_to(pills_taken_url, alert: the_pill_taken.errors.full_messages.to_sentence )
+      redirect_to(pills_taken_url, alert: @pill_takens.errors.full_messages.to_sentence )
     end
   end
 
   def update
-    the_id = params.fetch("path_id")
-    the_pill_taken = PillTaken.where({ id: the_id }).at(0)
+    @pill_takens = PillTaken.find(params.fetch(:id))
 
-    the_pill_taken.pill_id = params.fetch("query_pill_id")
-    the_pill_taken.quantity = params.fetch("query_quantity")
+    @pill_takens.pill_id = params.fetch("query_pill_id")
+    @pill_takens.quantity = params.fetch("query_quantity")
 
-    if the_pill_taken.valid?
-      the_pill_taken.save
-      redirect_to(pills_taken_url(the_pill_taken.id), notice: "Pill taken updated successfully." )
+    if @pill_takens.valid?
+      @pill_takens.save
+      redirect_to(pills_taken_url(@pill_takens.id), notice: "Pill taken updated successfully." )
     else
-      redirect_to(pills_taken_url(the_pill_taken.id), alert: the_pill_taken.errors.full_messages.to_sentence )
+      redirect_to(pills_taken_url(@pill_takens.id), alert: @pill_takens.errors.full_messages.to_sentence )
     end
   end
 
   def destroy
-    the_id = params.fetch("path_id")
-    the_pill_taken = PillTaken.where({ id: the_id }).at(0)
+    @pill_takens = PillTaken.find(params.fetch(:id))
 
-    the_pill_taken.destroy
+    @pill_takens.destroy
 
     redirect_to(pills_taken_url, notice: "Pill taken deleted successfully.")
   end

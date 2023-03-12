@@ -16,18 +16,12 @@
 
     <%=form_with(url:new_vitamin_path) do %>
       <div>
-        <label for="name">
-          Vitamin
-        </label>
-
+        <%= label_tag :name, "Vitamin" %>
         <input type="text" id="name" name="query_name">
       </div>
 
       <div>
-        <label for="amount_per_serving_box">
-          MG per serving
-        </label>
-
+        <%= label_tag :amount_per_serving_box, "MG per serving" %>
         <input type="text" id="amount_per_serving_box" name="query_amount_per_serving">
       </div>
 
@@ -55,7 +49,7 @@
         </th>
       </tr>
 
-      <% @list_of_vitamins.each do |a_vitamin| %>
+      <% @vitamins.each do |a_vitamin| %>
       <tr>
         <td>
           <%= a_vitamin.id %>
