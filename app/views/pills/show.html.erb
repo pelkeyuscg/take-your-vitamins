@@ -33,7 +33,7 @@
       </dd>
 
       <dt>
-        Brand
+        Brand 
       </dt>
       <dd>
         <%= @the_pill.brand %>
@@ -68,7 +68,7 @@
       </dd>
 
       <dt>
-        Order more stuff
+        Order more stuff show
       </dt>
       <dd>
         <%= @the_pill.order_more %>
@@ -109,74 +109,47 @@
 
     <form action="<%edit_pill_path(@the_pill.id) %>"  method="post" >
       <div>
-        <label for="vitamin_id_box">
-          Vitamin
-        </label>
-
+        <%= label_tag :vitamin_id_box, "Vitamin" %>
         <input type="text" id="vitamin_id_box" name="query_vitamin_id" value="<%= @the_pill.vitamin_id %>">
       </div>
 
       <div>
-        <label for="owner_id_box">
-          Owner
-        </label>
-
+        <%= label_tag :owner_id_box, "Owner" %>
         <input type="text" id="owner_id_box" name="query_owner_id" value="<%= @the_pill.owner_id %>">
       </div>
 
       <div>
-        <label for="brand_box">
-          Brand
-        </label>
-
+        <%= label_tag :brand_box, "Brand" %>
         <input type="text" id="brand_box" name="query_brand" value="<%= @the_pill.brand %>">
       </div>
 
       <div>
-        <label for="description_box">
-          Description
-        </label>
-
+        <%= label_tag :description_box, "Description" %>
         <input type="text" id="description_box" name="query_description" value="<%= @the_pill.description %>">
       </div>
 
       <div>
-        <label for="ingredients_box">
-          Ingredients
-        </label>
-
+        <%= label_tag :ingredients_box, "Ingredients" %>
         <input type="text" id="ingredients_box" name="query_ingredients" value="<%= @the_pill.ingredients %>">
       </div>
 
       <div>
-        <label for="quantity_box">
-          Quantity
-        </label>
-
+        <%= label_tag :quantity_box, "Quantity" %>
         <input type="text" id="quantity_box" name="query_quantity" value="<%= @the_pill.quantity %>">
       </div>
 
       <div>
-        <label for="upc_box">
-          Upc
-        </label>
-
+        <%= label_tag :upc_box, "Upc" %>
         <input type="text" id="upc_box" name="query_upc" value="<%= @the_pill.upc %>">
       </div>
 
       <div>
-        <label for="order_more_box">
-          Order more
-        </label>
-
+        <%= label_tag :order_more_box, "Order more index" %>
         <input type="text" id="order_more_box" name="query_order_more" value="<%= @the_pill.order_more %>">
       </div>
 
       <div>
-        <label for="pill_takens_count_box">
-          Pill takens count
-        </label>
-
+        <%= label_tag :pill_takens_count_box, "Pill takens count" %>
         <input type="text" id="pill_takens_count_box" name="query_pill_takens_count" value="<%= @the_pill.pill_takens_count %>">
       </div>
 

@@ -24,9 +24,9 @@ class User < ApplicationRecord
   has_many  :pills, :class_name => "Pill", :foreign_key => "owner_id"
   has_many  :prescriptions, :class_name => "Prescription", :foreign_key => "owner_id", :dependent => :destroy
 
-  validates :username, :length => { :minimum => 5, :maximum => 20 }
-  validates :username, :presence => true
-  validates :username, :uniqueness => true
+  #validates :username, :length => { :minimum => 5, :maximum => 20 }
+  #validates :username, :presence => true
+  #validates :username, :uniqueness => true
 
   scope :past_week, -> { where(created_at: 1.week.ago...) }
 end
