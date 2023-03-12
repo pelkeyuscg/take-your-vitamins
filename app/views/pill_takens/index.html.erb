@@ -17,11 +17,11 @@
     <%= form_with(url: new_pill_taken_path) do %>
       <div>
         <%= label_tag :pill_box, "Pill" %>
-        <%= text_field_tag :query_pill_id %>
+        <%= text_field_tag :pill_id %>
       </div>
       <div>
         <%= label_tag :quantity_box, "Quantity"%>
-        <%= text_field_tag :query_quantity %>
+        <%= text_field_tag :quantity %>
       </div>
         <button>
           Create pill taken

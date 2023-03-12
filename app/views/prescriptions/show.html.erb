@@ -64,17 +64,17 @@
     <%= form_with(url: edit_prescription_path(@the_prescription.id), method: :post) do %>
       <div>
         <%= label_tag :frequency_box, "Frequency" %>
-        <input type="text" id="frequency_box" name="query_frequency" value="<%= @the_prescription.frequency %>">
+        <input type="text" id="frequency_box" name="frequency" value="<%= @the_prescription.frequency %>">
       </div>
 
       <div>
         <%= label_tag :pill_id_box, "Pill" %>
-        <input type="text" id="pill_id_box" name="query_pill_id" value="<%= @the_prescription.pill_id %>">
+        <input type="text" id="pill_id_box" name="pill_id" value="<%= @the_prescription.pill_id %>">
       </div>
 
       <div>
         <%= label_tag :owner_id_box, "Owner" %>
-        <input type="text" id="owner_id_box" name="query_owner_id" value="<%= @the_prescription.owner_id %>">
+        <input type="text" id="owner_id_box" name="owner_id" value="<%= @the_prescription.owner_id %>">
       </div>
 
       <button>

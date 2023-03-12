@@ -17,12 +17,12 @@
     <%=form_with(url:new_vitamin_path) do %>
       <div>
         <%= label_tag :name, "Vitamin" %>
-        <input type="text" id="name" name="query_name">
+        <input type="text" id="name" name="name">
       </div>
 
       <div>
         <%= label_tag :amount_per_serving_box, "MG per serving" %>
-        <input type="text" id="amount_per_serving_box" name="query_amount_per_serving">
+        <input type="text" id="amount_per_serving_box" name="amount_per_serving">
       </div>
 
       <button>
