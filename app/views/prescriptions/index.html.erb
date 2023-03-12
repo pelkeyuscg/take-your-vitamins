@@ -16,18 +16,18 @@
     <%= form_with(url: new_prescription_path) do %>
     
       <div>
-        <%= label_tag :frequency_box, "Frequency" %>
-        <input type="text" id="frequency_box" name="frequency">
+        <%= label_tag :frequency %>
+        <input type="text" id="frequency" name="frequency">
       </div>
 
       <div>
-        <%= label_tag :pill_id_box, "Pill" %>
-        <input type="text" id="pill_id_box" name="pill_id">
+        <%= label_tag :pill_id %>
+        <input type="text" id="pill_id" name="pill_id">
       </div>
 
       <div>
-        <%= label_tag :owner_id_box, "Owner" %>
-        <input type="text" id="owner_id_box" name="owner_id">
+        <%= label_tag :owner_id %>
+        <input type="text" id="owner_id" name="owner_id">
       </div>
 
       <button>
@@ -70,33 +70,33 @@
         </th>
       </tr>
 
-      <% @list_of_prescriptions.each do |a_prescription| %>
+      <% @list_of_prescriptions.each do |prescription| %>
       <tr>
         <td>
-          <%= a_prescription.id %>
+          <%= prescription.id %>
         </td>
 
         <td>
-          <%= a_prescription.frequency %>
+          <%= prescription.frequency %>
         </td>
 
         <td>
-          <%= a_prescription.pill_id %>
+          <%= prescription.pill_id %>
         </td>
 
         <td>
-          <%= a_prescription.owner_id %>
+          <%= prescription.owner_id %>
         </td>
 
         <td>
-          <%= time_ago_in_words(a_prescription.created_at) %> ago
+          <%= time_ago_in_words(prescription.created_at) %> ago
         </td>
         <td>
-          <%= time_ago_in_words(a_prescription.updated_at) %> ago
+          <%= time_ago_in_words(prescription.updated_at) %> ago
         </td>
 
         <td>
-            <%= link_to "Show Details", prescriptions_path(a_prescription.id) %>
+          <%= link_to "Show Details", prescription_path(prescription.id) %>
         </td>
       </tr>
       <% end %>

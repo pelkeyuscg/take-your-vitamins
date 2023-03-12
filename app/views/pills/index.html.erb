@@ -16,48 +16,48 @@
     <%= form_with(url: new_pill_path) do %>
 
       <div>
-        <%= label_tag :vitamin_id_box, "Vitamin" %>
-        <input type="text" id="vitamin_id_box" name="vitamin_id">
+        <%= label_tag :vitamin_id %>
+        <input type="text" id="vitamin_id" name="vitamin_id">
       </div>
 
       <div>
-        <%= label_tag :owner_id_box, "Owner" %>
-        <input type="text" id="owner_id_box" name="owner_id">
+        <%= label_tag :owner_id %>
+        <input type="text" id="owner_id" name="owner_id">
       </div>
 
       <div>
-        <%= label_tag :brand_box, "Brand" %>
-        <input type="text" id="brand_box" name="brand">
+        <%= label_tag :brand %>
+        <input type="text" id="brand" name="brand">
       </div>
 
       <div>
-        <%= label_tag :description_box, "Description" %>
-        <input type="text" id="description_box" name="description">
+        <%= label_tag :description %>
+        <input type="text" id="description" name="description">
       </div>
 
       <div>
-        <%= label_tag :ingredients_box, "Ingredients" %>
-        <input type="text" id="ingredients_box" name="ingredients">
+        <%= label_tag :ingredients %>
+        <input type="text" id="ingredients" name="ingredients">
       </div>
 
       <div>
-        <%= label_tag :quantity_box, "Quantity" %>
-        <input type="text" id="quantity_box" name="quantity">
+        <%= label_tag :quantity %>
+        <input type="text" id="quantity" name="quantity">
       </div>
 
       <div>
-        <%= label_tag :upc_box, "Upc" %>
-        <input type="text" id="upc_box" name="upc">
+        <%= label_tag :upc %>
+        <input type="text" id="upc" name="upc">
       </div>
 
       <div>
-        <%= label_tag :order_more_box, "Order more index" %>
-        <input type="text" id="order_more_box" name="order_more">
+        <%= label_tag :order_more %>
+        <input type="text" id="order_more" name="order_more">
       </div>
 
       <div>
-        <%= label_tag :pill_takens_count_box, "Pill takens count" %>
-        <input type="text" id="pill_takens_count_box" name="pill_takens_count">
+        <%= label_tag :pill_takens_count %>
+        <input type="text" id="pill_takens_count" name="pill_takens_count">
       </div>
 
       <button>
@@ -114,49 +114,49 @@
         </th>
       </tr>
 
-      <% @pills.each do |a_pill| %>
+      <% @pills.each do |pill| %>
       <tr>
         <td>
-          <%= a_pill.vitamin_id %>
+          <%= pill.vitamin_id %>
         </td>
 
         <td>
-          <%= a_pill.brand %>
+          <%= pill.brand %>
         </td>
 
         <td>
-          <%= a_pill.description %>
+          <%= pill.description %>
         </td>
 
         <td>
-          <%= a_pill.ingredients %>
+          <%= pill.ingredients %>
         </td>
 
         <td>
-          <%= a_pill.quantity %>
+          <%= pill.quantity %>
         </td>
 
         <td>
-          <%= a_pill.upc %>
+          <%= pill.upc %>
         </td>
 
         <td>
-          <%= a_pill.order_more %>
+          <%= pill.order_more %>
         </td>
 
         <td>
-          <%= a_pill.pill_takens_count %>
+          <%= pill.pill_takens_count %>
         </td>
 
         <td>
-          <%= time_ago_in_words(a_pill.created_at) %> ago
+          <%= time_ago_in_words(pill.created_at) %> ago
         </td>
         <td>
-          <%= time_ago_in_words(a_pill.updated_at) %> ago
+          <%= time_ago_in_words(pill.updated_at) %> ago
         </td>
 
         <td>
-          <%= link_to "Show Details", pills_path(a_pill.id) %>
+          <%= link_to "Show Details", pill_path(pill.id) %>
         </td>
       </tr>
       <% end %>

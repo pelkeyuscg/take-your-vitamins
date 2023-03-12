@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      Prescription #<%= @the_prescription.id %> details
+      Prescription #<%= @prescription.id %> details
     </h1>
 
     <div>
@@ -10,7 +10,7 @@
       </div>
 
       <div>
-        <%= link_to "Delete Prescription", delete_prescription_path(@the_prescription.id) %>
+        <%= link_to "Delete Prescription", delete_prescription_path(@prescription.id) %>
       </div>
     </div>
 
@@ -19,35 +19,35 @@
         Frequency
       </dt>
       <dd>
-        <%= @the_prescription.frequency %>
+        <%= @prescription.frequency %>
       </dd>
 
       <dt>
         Pill
       </dt>
       <dd>
-        <%= @the_prescription.pill_id %>
+        <%= @prescription.pill_id %>
       </dd>
 
       <dt>
         Owner
       </dt>
       <dd>
-        <%= @the_prescription.owner_id %>
+        <%= @prescription.owner_id %>
       </dd>
 
       <dt>
         Created at
       </dt>
       <dd>
-        <%= time_ago_in_words(@the_prescription.created_at) %> ago
+        <%= time_ago_in_words(@prescription.created_at) %> ago
       </dd>
 
       <dt>
         Updated at
       </dt>
       <dd>
-        <%= time_ago_in_words(@the_prescription.updated_at) %> ago
+        <%= time_ago_in_words(@prescription.updated_at) %> ago
       </dd>
     </dl>
   </div>
@@ -61,20 +61,20 @@
     <h2>
       Edit prescription
     </h2>
-    <%= form_with(url: edit_prescription_path(@the_prescription.id), method: :post) do %>
+    <%= form_with(url: edit_prescription_path(@prescription.id), method: :post) do %>
       <div>
-        <%= label_tag :frequency_box, "Frequency" %>
-        <input type="text" id="frequency_box" name="frequency" value="<%= @the_prescription.frequency %>">
+        <%= label_tag :frequency %>
+        <input type="text" id="frequency" name="frequency" value="<%= @prescription.frequency %>">
       </div>
 
       <div>
-        <%= label_tag :pill_id_box, "Pill" %>
-        <input type="text" id="pill_id_box" name="pill_id" value="<%= @the_prescription.pill_id %>">
+        <%= label_tag :pill_id %>
+        <input type="text" id="pill_id" name="pill_id" value="<%= @prescription.pill_id %>">
       </div>
 
       <div>
-        <%= label_tag :owner_id_box, "Owner" %>
-        <input type="text" id="owner_id_box" name="owner_id" value="<%= @the_prescription.owner_id %>">
+        <%= label_tag :owner_id %>
+        <input type="text" id="owner_id" name="owner_id" value="<%= @prescription.owner_id %>">
       </div>
 
       <button>

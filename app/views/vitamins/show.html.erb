@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      Vitamin #<%= @the_vitamin.id %> details
+      Vitamin #<%= @vitamin.id %> details
     </h1>
 
     <div>
@@ -10,7 +10,7 @@
       </div>
 
       <div>
-        <%= link_to "Delete vitamin", delete_vitamin_path(@the_vitamin.id) %>
+        <%= link_to "Delete vitamin", vitamin_path(@vitamin.id) %>
       </div>
     </div>
 
@@ -19,23 +19,24 @@
         Amount per serving
       </dt>
       <dd>
-        <%= @the_vitamin.amount_per_serving %>
+        <%= @vitamin.amount_per_serving %>
       </dd>
 
       <dt>
         Created at
       </dt>
       <dd>
-        <%= time_ago_in_words(@the_vitamin.created_at) %> ago
+        <%= time_ago_in_words(@vitamin.created_at) %> ago
       </dd>
 
       <dt>
         Updated at
       </dt>
       <dd>
-        <%= time_ago_in_words(@the_vitamin.updated_at) %> ago
+        <%= time_ago_in_words(@vitamin.updated_at) %> ago
       </dd>
     </dl>
+    
   </div>
 </div>
 
@@ -47,17 +48,18 @@
     <h2>
       Edit vitamin
     </h2>
-    <%=form_with(url:edit_pill_path(@the_vitamin.id) method: :post) do %>
+    <%=form_with(url:edit_pill_path(@vitamin.id)) do %>
       <div>
         <div>
-          <%= label_tag :amount_per_serving_box, "MG per serving" %>
-          <input type="text" id="amount_per_serving_box" name="amount_per_serving">
+          <%= label_tag :amount_per_serving, "MG per serving" %>
+          <input type="text" id="amount_per_serving" name="amount_per_serving">
         </div>
+      </div>
+      <% end %>
       <button>
         Update vitamin
       </button>
-    <% end %>
-  </div>
+    </div>
 </div>
 
 <hr>

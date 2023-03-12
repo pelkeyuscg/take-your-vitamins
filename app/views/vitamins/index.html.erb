@@ -16,13 +16,13 @@
 
     <%=form_with(url:new_vitamin_path) do %>
       <div>
-        <%= label_tag :name, "Vitamin" %>
+        <%= label_tag :name %>
         <input type="text" id="name" name="name">
       </div>
 
       <div>
-        <%= label_tag :amount_per_serving_box, "MG per serving" %>
-        <input type="text" id="amount_per_serving_box" name="amount_per_serving">
+        <%= label_tag :amount_per_serving, "MG per serving" %>
+        <input type="text" id="amount_per_serving" name="amount_per_serving">
       </div>
 
       <button>
@@ -49,18 +49,18 @@
         </th>
       </tr>
 
-      <% @vitamins.each do |a_vitamin| %>
+      <% @vitamins.each do |vitamin| %>
       <tr>
         <td>
-          <%= a_vitamin.id %>
+          <%= vitamin.id %>
         </td>
 
         <td>
-          <%= a_vitamin.amount_per_serving %>
+          <%= vitamin.amount_per_serving %>
         </td>
 
         <td>
-        <%= link_to "Show details", vitamins_path(a_vitamin.id) %>
+        <%= link_to "Show details", vitamin_path(vitamin.id) %>
         </td>
       </tr>
       <% end %>

@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      Pill taken #<%= @the_pill_taken.id %> details
+      Pill taken #<%= @pill_taken.id %> details
     </h1>
 
     <div>
@@ -10,7 +10,7 @@
       </div>
 
       <div>
-        <%= link_to "Delete Pill Taken", delete_pill_taken_path(@the_pill_taken.id) %>
+        <%= link_to "Delete Pill Taken", delete_pill_taken_path(@pill_taken.id) %>
       </div>
     </div>
 
@@ -19,28 +19,28 @@
         Pill
       </dt>
       <dd>
-        <%= @the_pill_taken.pill_id %>
+        <%= @pill_taken.pill_id %>
       </dd>
 
       <dt>
         Quantity
       </dt>
       <dd>
-        <%= @the_pill_taken.quantity %>
+        <%= @pill_taken.quantity %>
       </dd>
 
       <dt>
         Created at
       </dt>
       <dd>
-        <%= time_ago_in_words(@the_pill_taken.created_at) %> ago
+        <%= time_ago_in_words(@pill_taken.created_at) %> ago
       </dd>
 
       <dt>
         Updated at
       </dt>
       <dd>
-        <%= time_ago_in_words(@the_pill_taken.updated_at) %> ago
+        <%= time_ago_in_words(@pill_taken.updated_at) %> ago
       </dd>
     </dl>
   </div>
@@ -54,22 +54,16 @@
     <h2>
       Edit pill taken
     </h2>
-      <%= form_with(url: modify_pill_taken_path(@the_pill_taken.id)) do %>
+      <%= form_with(url: modify_pill_taken_path(@pill_taken.id)) do %>
 
       <div>
-        <label for="pill_id_box">
-          Pill
-        </label>
-
-        <input type="text" id="pill_id_box" name="pill_id" value="<%= @the_pill_taken.pill_id %>">
+        <%= label_tag :pill %>
+        <input type="text" id="pill_id" name="pill_id" value="<%= @pill_taken.pill_id %>">
       </div>
 
       <div>
-        <label for="quantity_box">
-          Quantity
-        </label>
-
-        <input type="text" id="quantity_box" name="quantity" value="<%= @the_pill_taken.quantity %>">
+        <%= label_tag :quantity %>
+        <input type="text" id="quantity" name="quantity" value="<%= @pill_taken.quantity %>">
       </div>
 
       <button>

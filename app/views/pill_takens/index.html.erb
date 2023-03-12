@@ -16,11 +16,11 @@
 
     <%= form_with(url: new_pill_taken_path) do %>
       <div>
-        <%= label_tag :pill_box, "Pill" %>
+        <%= label_tag :pill %>
         <%= text_field_tag :pill_id %>
       </div>
       <div>
-        <%= label_tag :quantity_box, "Quantity"%>
+        <%= label_tag :quantity %>
         <%= text_field_tag :quantity %>
       </div>
         <button>
@@ -58,29 +58,29 @@
             </th>
           </tr>
 
-          <% @pill_takens.each do |a_pill_taken| %>
+          <% @pill_takens.each do |pill_taken| %>
             <tr>
               <td>
-                <%= a_pill_taken.id %>
+                <%= pill_taken.id %>
               </td>
 
               <td>
-                <%= a_pill_taken.pill_id %>
+                <%= pill_taken.pill_id %>
               </td>
 
               <td>
-                <%= a_pill_taken.quantity %>
+                <%= pill_taken.quantity %>
               </td>
 
               <td>
-                <%= time_ago_in_words(a_pill_taken.created_at) %> ago
+                <%= time_ago_in_words(pill_taken.created_at) %> ago
               </td>
               <td>
-                <%= time_ago_in_words(a_pill_taken.updated_at) %> ago
+                <%= time_ago_in_words(pill_taken.updated_at) %> ago
               </td>
 
               <td>
-                <%= link_to "Show Details", pills_taken_path(a_pill_taken.id) %>
+                <%= link_to "Show Details", pills_taken_path(pill_taken.id) %>
               </td>
 
             </tr>

@@ -1,6 +1,13 @@
 class VitaminsController < ApplicationController
   def index
     @vitamins = Vitamin.order( created_at: :desc )
+
+    #respond_to do |format|
+      #format.json do
+        #render json: @vitamins
+     # end
+     # format.html
+   # end
   end
 
   def show
@@ -9,7 +16,7 @@ class VitaminsController < ApplicationController
 
   def create
     @vitamin = Vitamin.new
-    @vitamin.amount_per_serving = params.fetch("amount_per_serving")
+    @vitamin.amount_per_serving = params.fetch(:amount_per_serving)
 
     if @vitamin.valid?
       @vitamin.save
