@@ -2,12 +2,12 @@ class VitaminsController < ApplicationController
   def index
     @vitamins = Vitamin.order( created_at: :desc )
 
-    #respond_to do |format|
-      #format.json do
-        #render json: @vitamins
-     # end
-     # format.html
-   # end
+#    respond_to do |format|
+ #     format.json do
+  #      render json: @vitamins
+   #   end
+    #  format.html
+    #end
   end
 
   def show

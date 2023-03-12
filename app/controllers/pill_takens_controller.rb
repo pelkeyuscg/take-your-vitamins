@@ -1,14 +1,14 @@
 class PillTakensController < ApplicationController
   def index
-    @pill_takens = Pilltakens.order( created_at: :desc )
+    @pill_takens = PillTaken.order( created_at: :desc )
   end
 
   def show
-    @pill_takens = Pill_Takens.find(params.fetch(:id))
+    @pill_takens = PillTaken.find(params.fetch(:id))
   end
 
   def create
-    @pill_takens = Pill_Takens.new
+    @pill_takens = PillTaken.new
     @pill_takens.pill_id = params.fetch(:pill_id)
     @pill_takens.quantity = params.fetch(:quantity)
 
@@ -21,7 +21,7 @@ class PillTakensController < ApplicationController
   end
 
   def update
-    @pill_takens = Pill_Taken.find(params.fetch(:id))
+    @pill_takens = PillTaken.find(params.fetch(:id))
 
     @pill_takens.pill_id = params.fetch(:pill_id)
     @pill_takens.quantity = params.fetch(:quantity)
@@ -35,7 +35,7 @@ class PillTakensController < ApplicationController
   end
 
   def destroy
-    @pill_takens = Pill_Taken.find(params.fetch(:id))
+    @pill_takens = PillTaken.find(params.fetch(:id))
 
     @pill_takens.destroy
 
