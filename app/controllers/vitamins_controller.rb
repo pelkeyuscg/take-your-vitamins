@@ -9,7 +9,7 @@ class VitaminsController < ApplicationController
 
   def create
     @vitamin = Vitamin.new
-    @vitamin.amount_per_serving = params.fetch("query_amount_per_serving")
+    @vitamin.amount_per_serving = params.fetch("amount_per_serving")
 
     if @vitamin.valid?
       @vitamin.save
@@ -21,7 +21,7 @@ class VitaminsController < ApplicationController
 
   def update
     @vitamin = Vitamin.find(params.fetch(:id))
-    @vitamin.amount_per_serving = params.fetch("query_amount_per_serving")
+    @vitamin.amount_per_serving = params.fetch("amount_per_serving")
 
     if @vitamin.valid?
       @vitamin.save

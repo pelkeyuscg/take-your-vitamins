@@ -9,8 +9,8 @@ class PillTakensController < ApplicationController
 
   def create
     @pill_takens = PillTaken.new
-    @pill_takens.pill_id = params.fetch("query_pill_id")
-    @pill_takens.quantity = params.fetch("query_quantity")
+    @pill_takens.pill_id = params.fetch("pill_id")
+    @pill_takens.quantity = params.fetch("quantity")
 
     if @pill_takens.valid?
       @pill_takens.save
@@ -23,8 +23,8 @@ class PillTakensController < ApplicationController
   def update
     @pill_takens = PillTaken.find(params.fetch(:id))
 
-    @pill_takens.pill_id = params.fetch("query_pill_id")
-    @pill_takens.quantity = params.fetch("query_quantity")
+    @pill_takens.pill_id = params.fetch("pill_id")
+    @pill_takens.quantity = params.fetch("quantity")
 
     if @pill_takens.valid?
       @pill_takens.save

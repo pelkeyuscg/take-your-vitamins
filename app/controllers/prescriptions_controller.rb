@@ -9,9 +9,9 @@ class PrescriptionsController < ApplicationController
 
   def create
     @prescription = Prescription.new
-    @prescription.frequency = params.fetch("query_frequency")
-    @prescription.pill_id = params.fetch("query_pill_id")
-    @prescription.owner_id = params.fetch("query_owner_id")
+    @prescription.frequency = params.fetch("frequency")
+    @prescription.pill_id = params.fetch("pill_id")
+    @prescription.owner_id = params.fetch("owner_id")
 
     if @prescription.valid?
       @prescription.save
@@ -24,9 +24,9 @@ class PrescriptionsController < ApplicationController
   def update
     @prescription = Prescription.find(params.fetch(:id))
 
-    @prescription.frequency = params.fetch("query_frequency")
-    @prescription.pill_id = params.fetch("query_pill_id")
-    @prescription.owner_id = params.fetch("query_owner_id")
+    @prescription.frequency = params.fetch("frequency")
+    @prescription.pill_id = params.fetch("pill_id")
+    @prescription.owner_id = params.fetch("owner_id")
 
     if @prescription.valid?
       @prescription.save
