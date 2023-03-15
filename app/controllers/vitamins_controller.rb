@@ -4,10 +4,10 @@ class VitaminsController < ApplicationController
     @vitamins = Vitamin.order( created_at: :desc )
 
     respond_to do |format|
-     format.json do
+      format.json do
       render json: @vitamins
-   end
-  format.html
+    end
+    format.html
     end
   end
 

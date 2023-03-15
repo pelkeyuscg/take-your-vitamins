@@ -4,16 +4,16 @@
 
 
       <div class="card-body">
-        <h5 class="card-title"><%= vitamin.id %></h5>
-        <p class="card-text">  <%= vitamin.amount_per_serving %></p>
+        <h5 class="card-title"><%= pill.id %></h5>
+        <p class="card-text">  <%= pill.brand %></p>
       </div>
 
       <ul class="list-group list-group-flush">
-        <p> Delete - _vitaminhtml </p>
+        <p> Delete </p>
       </ul>
 
       <div class="card-body">
-        <%= render "vitamins/form", vitamin: Vitamin.new(vitamin_id: vitamin.id) %>
+        <%= render "comments/form", comment: Comment.new(photo_id: photo.id) %>
 
       </div>
     </div>
