@@ -10,7 +10,7 @@
       </div>
 
       <div>
-        <%= link_to "Delete vitamin", vitamin_path(@vitamin.id) %>
+        <%= link_to "Delete vitamin", vitamin_path(@vitamin.id), method: :delete, data: { confirm: 'Are you sure?' }%>
       </div>
     </div>
 

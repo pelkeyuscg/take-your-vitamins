@@ -10,9 +10,9 @@
 
 <div>
   <div>
-    <h2>
+    <h3>
       Add a new pill
-    </h2>
+    </h3>
     <%= form_with(url: new_pill_path) do %>
 
       <div>
@@ -20,10 +20,6 @@
         <input type="text" id="vitamin_id" name="vitamin_id">
       </div>
 
-      <div>
-        <%= label_tag :owner_id %>
-        <input type="text" id="owner_id" name="owner_id">
-      </div>
 
       <div>
         <%= label_tag :brand %>

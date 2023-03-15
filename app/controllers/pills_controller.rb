@@ -10,7 +10,7 @@ class PillsController < ApplicationController
   def create
     @pill = Pill.new
     @pill.vitamin_id = params.fetch(:vitamin_id)
-    @pill.owner_id = params.fetch(:owner_id)
+    @pill.owner_id = current_user.id
     @pill.brand = params.fetch(:brand)
     @pill.description = params.fetch(:description)
     @pill.ingredients = params.fetch(:ingredients)
