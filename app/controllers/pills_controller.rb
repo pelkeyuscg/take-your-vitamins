@@ -15,8 +15,9 @@ class PillsController < ApplicationController
   end
 
 
-  def new
+  def create
     @pill = Pill.new(@pill_params)
+    @pill.owner_id = current_user.id
 
     respond_to do |format|
       if @pill.save
@@ -29,24 +30,17 @@ class PillsController < ApplicationController
     end
   end
 
-  def update
+  def edit
     @pill = Pill.find(params.fetch(:id))
-
-    @pill.vitamin_id = params.fetch(:vitamin_id)
-    @pill.owner_id = params.fetch(:owner_id)
-    @pill.brand = params.fetch(:brand)
-    @pill.description = params.fetch(:description)
-    @pill.ingredients = params.fetch(:ingredients)
-    @pill.quantity = params.fetch(:quantity)
-    @pill.upc = params.fetch(:upc)
-    @pill.order_more = params.fetch(:order_more)
-    @pill.pill_takens_count = params.fetch(:pill_takens_count)
-
-    if @pill.valid?
-      @pill.save
-      redirect_to(pills_url(@pill.id), notice: "Pill updated successfully.")
-    else
-      redirect_to(pills_url(@pill.id), alert: @pill.errors.full_messages.to_sentence )
+    @pill.owner_id = current_user.id
+    respond_to do |format|
+      if @pill.update(@pill_params)
+        format.html { redirect_to pill_url(@pill), notice: "Pill was successfully updated." }
+        format.json { render :show, status: :ok, location: @pill }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @pill.errors, status: :unprocessable_entity }
+      end
     end
   end
 
