@@ -5,13 +5,11 @@
     </h1>
 
     <div>
-      <div>
-        <%= link_to "Go Back", vitamins_path %>
-      </div>
+        <%= link_to "Edit", edit_vitamin_path(@vitamin)  %> |
+        <%= link_to "Delete vitamin", vitamin_path(@vitamin.id), method: :delete, data: { confirm: 'Are you sure?' }%> |
+        <%= link_to "Go back", vitamins_path %> 
 
-      <div>
-        <%= link_to "Delete vitamin", vitamin_path(@vitamin.id), method: :delete, data: { confirm: 'Are you sure?' }%>
-      </div>
+
     </div>
 
     <dl>
@@ -38,28 +36,6 @@
     </dl>
     
   </div>
-</div>
-
-<hr>
-
-
-<div>
-  <div>
-    <h2>
-      Edit vitamin
-    </h2>
-    <%=form_with(url:edit_pill_path(@vitamin.id)) do %>
-      <div>
-        <div>
-          <%= label_tag :amount_per_serving, "MG per serving" %>
-          <input type="text" id="amount_per_serving" name="amount_per_serving">
-        </div>
-      </div>
-      <% end %>
-      <button>
-        Update vitamin
-      </button>
-    </div>
 </div>
 
 <hr>

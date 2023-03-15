@@ -3,4 +3,5 @@
 <%= render 'form', pill: @pill %>
 
 <%= link_to 'Show', @pill %> |
+<%= link_to "Delete Pill", pill_path(@pill.id), method: :delete, data: { confirm: 'Are you sure?' }%> |
 <%= link_to 'Back', pills_path %>

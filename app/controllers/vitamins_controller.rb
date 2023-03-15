@@ -42,15 +42,25 @@ class VitaminsController < ApplicationController
 
 
   def update
-    @vitamin = Vitamin.find(params.fetch(:id))
-    @vitamin.amount_per_serving = params.fetch("amount_per_serving")
-
-    if @vitamin.valid?
-      @vitamin.save
-      redirect_to(vitamins_url(@vitamin.id), notice: "Vitamin updated successfully." )
-    else
-      redirect_to(vitamins_url(@vitamin.id), alert: @vitamin.errors.full_messages.to_sentence )
+    respond_to do |format|
+      if @vitamin.update(vitamin_params)
+        format.html { redirect_to vitamin_url(@vitamin), notice: "Vitamin was successfully updated." }
+        format.json { render :show, status: :ok, location: @vitamin }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @vitamin.errors, status: :unprocessable_entity }
+      end
     end
+    
+    #@vitamin = Vitamin.find(params.fetch(:id))
+    #@vitamin.amount_per_serving = params.fetch("amount_per_serving")
+
+    #if @vitamin.valid?
+      #@vitamin.save
+      #redirect_to(vitamins_url(@vitamin.id), notice: "Vitamin updated successfully." )
+    #else
+      #redirect_to(vitamins_url(@vitamin.id), alert: @vitamin.errors.full_messages.to_sentence )
+    #end
   end
 
   def destroy
