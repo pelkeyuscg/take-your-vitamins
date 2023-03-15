@@ -22,3 +22,19 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+
+From Vitamin form
+
+
+  <div>
+    <%= label_tag :amount_per_serving, "MG per serving" %>
+    <input type="text" id="amount_per_serving" name="amount_per_serving">
+  </div>
+
+  <div>
+    <%= label_tag :name %>
+    <input type="text" id="vitamin_id" name="vitamin_id">
+  </div>
+

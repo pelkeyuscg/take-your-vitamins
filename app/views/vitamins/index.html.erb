@@ -6,34 +6,11 @@
   </div>
 </div>
 
-<hr>
+
 
 <div>
   <div>
-    <h3>
-      Add a new vitamin second commit
-    </h3>
 
-<%= link_to 'New Vitamin', new_vitamin_path %>
-    
-    
-    <%=form_with(url:new_vitamin_path) do %>
-      <div>
-        <%= label_tag :name %>
-        <input type="text" id="vitamin_id" name="vitamin_id">
-      </div>
-
-      <div>
-        <%= label_tag :amount_per_serving, "MG per serving" %>
-        <input type="text" id="amount_per_serving" name="amount_per_serving">
-      </div>
-
-      <button>
-        Create vitamin
-      </button>
-    <% end %>
-  </div>
-</div>
 
 <hr>
 <div>
@@ -78,3 +55,4 @@
 </div>
 
 <hr>
+<%= link_to 'Add Vitamin', new_vitamin_path %>

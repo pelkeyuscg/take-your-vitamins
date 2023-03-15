@@ -1,30 +1,45 @@
 class VitaminsController < ApplicationController
+  
   def index
     @vitamins = Vitamin.order( created_at: :desc )
 
-    #respond_to do |format|
-    # format.json do
-    #  render json: @vitamins
-  # end
- # format.html
-  #  end
+    respond_to do |format|
+     format.json do
+      render json: @vitamins
+   end
+  format.html
+    end
   end
 
   def show
     @vitamin = Vitamin.find(params.fetch(:id))
   end
 
-  def create
+  def new
     @vitamin = Vitamin.new
-    @vitamin.amount_per_serving = params.fetch(:amount_per_serving)
+  end
 
-    if @vitamin.valid?
-      @vitamin.save
-      redirect_to(vitamins_url, notice: "Vitamin created successfully." )
-    else
-      redirect_to(vitamins_url, alert: @vitamin.errors.full_messages.to_sentence )
+  def create
+    @vitamin = Vitamin.new(@vitamin_params)
+
+    respond_to do |format|
+      if @vitamin.save
+        format.html { redirect_to vitamin_url(@vitamin), notice: "Vitamin was successfully created." }
+        format.json { render :show, status: :created, location: @vitamin }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @vitamin.errors, status: :unprocessable_entity }
+      end
     end
   end
+  #  @vitamin.amount_per_serving = params.fetch(:amount_per_serving)
+  #  if @vitamin.valid?
+  #    @vitamin.save
+  #    redirect_to(vitamins_url, notice: "Vitamin created successfully." )
+  #  else
+  #    redirect_to(vitamins_url, alert: @vitamin.errors.full_messages.to_sentence )
+  #  end
+
 
   def update
     @vitamin = Vitamin.find(params.fetch(:id))
