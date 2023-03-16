@@ -1,5 +1,6 @@
 class PillsController < ApplicationController
   before_action :set_pill, only: %i[ show edit update destroy ]
+
   def index
     @pills = Pill.order( created_at: :desc )
 
@@ -16,7 +17,7 @@ class PillsController < ApplicationController
   end
 
 
-  def new
+  def create
     @pill = Pill.new(@pill_params)
     @pill.owner_id = current_user.id
 
@@ -31,9 +32,9 @@ class PillsController < ApplicationController
     end
   end
 
-  def edit
+  def update
     respond_to do |format|
-      if @pill.update(@pill_params)
+      if @pill.update(pill_params)
         format.html { redirect_to pill_url(@pill), notice: "Pill was successfully updated." }
         format.json { render :show, status: :ok, location: @pill }
       else
@@ -59,7 +60,6 @@ class PillsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def pill_params
-    params.require(:pill).permit(:owner_id, :brand, :description, :ingredients, :quantity, :upc, :order_more, :pill_takens_count)
+    params.require(:pill).permit(:vitamin_id, :owner_id, :brand, :description, :ingredients, :quantity, :upc, :order_more, :pill_takens_count)
   end
-
 end

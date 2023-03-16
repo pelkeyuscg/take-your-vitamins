@@ -1,5 +1,6 @@
 class VitaminsController < ApplicationController
   before_action :set_vitamin, only: %i[ show edit update destroy ]
+
   def index
     @vitamins = Vitamin.order( created_at: :desc )
 
@@ -32,13 +33,6 @@ class VitaminsController < ApplicationController
       end
     end
   end
-  #  @vitamin.amount_per_serving = params.fetch(:amount_per_serving)
-  #  if @vitamin.valid?
-  #    @vitamin.save
-  #    redirect_to(vitamins_url, notice: "Vitamin created successfully." )
-  #  else
-  #    redirect_to(vitamins_url, alert: @vitamin.errors.full_messages.to_sentence )
-  #  end
 
 
   def update
@@ -51,16 +45,6 @@ class VitaminsController < ApplicationController
         format.json { render json: @vitamin.errors, status: :unprocessable_entity }
       end
     end
-    
-    #@vitamin = Vitamin.find(params.fetch(:id))
-    #@vitamin.amount_per_serving = params.fetch("amount_per_serving")
-
-    #if @vitamin.valid?
-      #@vitamin.save
-      #redirect_to(vitamins_url(@vitamin.id), notice: "Vitamin updated successfully." )
-    #else
-      #redirect_to(vitamins_url(@vitamin.id), alert: @vitamin.errors.full_messages.to_sentence )
-    #end
   end
 
   def destroy
