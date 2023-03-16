@@ -1,5 +1,5 @@
 class VitaminsController < ApplicationController
-  
+  before_action :set_vitamin, only: %i[ show edit update destroy ]
   def index
     @vitamins = Vitamin.order( created_at: :desc )
 
@@ -70,4 +70,15 @@ class VitaminsController < ApplicationController
 
     redirect_to(vitamins_url, notice: "Vitamin deleted successfully." )
   end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_vitamin
+      @vitamin = Vitamin.find(params[:id])
+    end
+
+    # Only allow a list of trusted parameters through.
+    def vitamin_params
+      params.require(:vitamin).permit(:amount_per_serving, :name)
+    end
 end

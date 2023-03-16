@@ -1,4 +1,5 @@
 class PillsController < ApplicationController
+  before_action :set_pill, only: %i[ show edit update destroy ]
   def index
     @pills = Pill.order( created_at: :desc )
 
@@ -15,7 +16,7 @@ class PillsController < ApplicationController
   end
 
 
-  def create
+  def new
     @pill = Pill.new(@pill_params)
     @pill.owner_id = current_user.id
 
@@ -31,8 +32,6 @@ class PillsController < ApplicationController
   end
 
   def edit
-    @pill = Pill.find(params.fetch(:id))
-    @pill.owner_id = current_user.id
     respond_to do |format|
       if @pill.update(@pill_params)
         format.html { redirect_to pill_url(@pill), notice: "Pill was successfully updated." }
@@ -51,4 +50,16 @@ class PillsController < ApplicationController
 
     redirect_to(pills_url, notice: "Pill deleted successfully." )
   end
+
+  private
+  # Use callbacks to share common setup or constraints between actions.
+  def set_pill
+    @pill = Pill.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def pill_params
+    params.require(:pill).permit(:owner_id, :brand, :description, :ingredients, :quantity, :upc, :order_more, :pill_takens_count)
+  end
+
 end

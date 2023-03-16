@@ -1,7 +1,9 @@
 <%= form_with(model: vitamin) do |form| %>
   <% if vitamin.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(vitamin.errors.count, "error") %> prohibited this vitamin from being saved:</h2>
+      <h2>
+        <%= pluralize(vitamin.errors.count, "error") %> prohibited this vitamin from being saved:
+      </h2>
 
       <ul>
         <% vitamin.errors.each do |error| %>
