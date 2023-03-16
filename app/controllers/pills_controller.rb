@@ -6,7 +6,7 @@ class PillsController < ApplicationController
 
     respond_to do |format|
       format.json do
-      render json: @vitamins
+      render json: @pills
     end
     format.html
     end
@@ -16,6 +16,9 @@ class PillsController < ApplicationController
     @pill = Pill.find(params.fetch(:id))
   end
 
+  def new
+    @pill = Pill.new
+  end
 
   def create
     @pill = Pill.new(@pill_params)
@@ -32,7 +35,7 @@ class PillsController < ApplicationController
     end
   end
 
-  def new
+  def update
     respond_to do |format|
       if @pill.update(pill_params)
         format.html { redirect_to pill_url(@pill), notice: "Pill was successfully updated." }
@@ -60,6 +63,6 @@ class PillsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def pill_params
-    params.require(:pill).permit(:vitamin_id, :owner_id, :brand, :description, :ingredients, :quantity, :upc, :order_more, :pill_takens_count)
+    params.require(:pill).permit(:vitamin_id, :owner_id, :brand,  :description, :ingredients, :quantity, :upc, :order_more, :pill_takens_count, :created_at, :updated_at)
   end
 end
