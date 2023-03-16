@@ -32,7 +32,7 @@ class PillsController < ApplicationController
     end
   end
 
-  def update
+  def new
     respond_to do |format|
       if @pill.update(pill_params)
         format.html { redirect_to pill_url(@pill), notice: "Pill was successfully updated." }
