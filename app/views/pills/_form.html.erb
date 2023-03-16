@@ -1,0 +1,47 @@
+<%= form_with(model: pill) do |form| %>
+  <% if pill.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(pill.errors.count, "error") %> prohibited this pill from being saved:
+      </h2>
+
+      <ul>
+        <% pill.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="field">
+    <%= form.label :vitamin_id  %>
+    <%= form.text_field :vitamin_id  %>
+  </div>
+  <div class="field">
+    <%= form.label :brand %>
+    <%= form.text_field :brand %>
+  </div>
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </div>
+  <div class="field">
+    <%= form.label :ingredients %>
+    <%= form.text_field :ingredients %>
+  </div>
+    <div class="field">
+    <%= form.label :quantity %>
+    <%= form.text_field :quantity %>
+  </div>
+    <div class="field">
+    <%= form.label :upc %>
+    <%= form.text_field :upc %>
+  </div>
+    <div class="field">
+    <%= form.label :pill_takens_count %>
+    <%= form.text_field :pill_takens_count %>
+  </div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

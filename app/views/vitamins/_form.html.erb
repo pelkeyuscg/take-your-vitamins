@@ -1,7 +1,9 @@
 <%= form_with(model: vitamin) do |form| %>
   <% if vitamin.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(photo.errors.count, "error") %> prohibited this vitamin from being saved:</h2>
+      <h2>
+        <%= pluralize(vitamin.errors.count, "error") %> prohibited this vitamin from being saved:
+      </h2>
 
       <ul>
         <% vitamin.errors.each do |error| %>
@@ -12,30 +14,13 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :image %>
-    <%= form.text_field :image %>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
   </div>
-
-  <div class="field">
-    <%= form.label :comments_count %>
-    <%= form.number_field :comments_count %>
+    <div class="field">
+    <%= form.label :amount_per_serving %>
+    <%= form.text_field :amount_per_serving%>
   </div>
-
-  <div class="field">
-    <%= form.label :likes_count %>
-    <%= form.number_field :likes_count %>
-  </div>
-
-  <div class="field">
-    <%= form.label :caption %>
-    <%= form.text_area :caption %>
-  </div>
-
-  <div class="field">
-    <%= form.label :owner_id %>
-    <%= form.text_field :owner_id %>
-  </div>
-
   <div class="actions">
     <%= form.submit %>
   </div>

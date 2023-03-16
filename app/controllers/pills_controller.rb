@@ -1,50 +1,49 @@
 class PillsController < ApplicationController
+  before_action :set_pill, only: %i[ show edit update destroy ]
+
   def index
     @pills = Pill.order( created_at: :desc )
+
+    respond_to do |format|
+      format.json do
+      render json: @pills
+    end
+    format.html
+    end
   end
 
   def show
     @pill = Pill.find(params.fetch(:id))
   end
 
-  def create
+  def new
     @pill = Pill.new
-    @pill.vitamin_id = params.fetch(:vitamin_id)
-    @pill.owner_id = params.fetch(:owner_id)
-    @pill.brand = params.fetch(:brand)
-    @pill.description = params.fetch(:description)
-    @pill.ingredients = params.fetch(:ingredients)
-    @pill.quantity = params.fetch(:quantity)
-    @pill.upc = params.fetch(:upc)
-    @pill.order_more = params.fetch(:order_more)
-    @pill.pill_takens_count = params.fetch(:pill_takens_count)
+  end
 
-    if @pill.valid?
-      @pill.save
-      redirect_to(pills_url, notice: "Pill created successfully." )
-    else
-      redirect_to(pills_url, alert: @pill.errors.full_messages.to_sentence )
+  def create
+    @pill = Pill.new(@pill_params)
+    @pill.owner_id = current_user.id
+
+    respond_to do |format|
+      if @pill.save
+        format.html { redirect_to pill_url(@pill), notice: "Pill was successfully created." }
+        format.json { render :show, status: :created, location: @pill }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @pill.errors, status: :unprocessable_entity }
+      end
     end
   end
 
   def update
-    @pill = Pill.find(params.fetch(:id))
-
-    @pill.vitamin_id = params.fetch(:vitamin_id)
-    @pill.owner_id = params.fetch(:owner_id)
-    @pill.brand = params.fetch(:brand)
-    @pill.description = params.fetch(:description)
-    @pill.ingredients = params.fetch(:ingredients)
-    @pill.quantity = params.fetch(:quantity)
-    @pill.upc = params.fetch(:upc)
-    @pill.order_more = params.fetch(:order_more)
-    @pill.pill_takens_count = params.fetch(:pill_takens_count)
-
-    if @pill.valid?
-      @pill.save
-      redirect_to(pills_url(@pill.id), notice: "Pill updated successfully.")
-    else
-      redirect_to(pills_url(@pill.id), alert: @pill.errors.full_messages.to_sentence )
+    respond_to do |format|
+      if @pill.update(pill_params)
+        format.html { redirect_to pill_url(@pill), notice: "Pill was successfully updated." }
+        format.json { render :show, status: :ok, location: @pill }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @pill.errors, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -54,5 +53,16 @@ class PillsController < ApplicationController
     @pill.destroy
 
     redirect_to(pills_url, notice: "Pill deleted successfully." )
+  end
+
+  private
+  # Use callbacks to share common setup or constraints between actions.
+  def set_pill
+    @pill = Pill.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def pill_params
+    params.require(:pill).permit(:vitamin_id, :owner_id, :brand,  :description, :ingredients, :quantity, :upc, :order_more, :pill_takens_count, :created_at, :updated_at)
   end
 end

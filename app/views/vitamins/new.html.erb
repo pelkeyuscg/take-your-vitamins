@@ -1,5 +1,11 @@
-<h1>New Vitamin</h1>
+<div class="row mb-4">
+  <div class="col-md-6 offset-md-3">
+    <h1 class="display-4">
+      New Vitamin
+    </h1>
 
-<%= render 'form', vitamin: @vitamin %>
-
-<%= link_to 'Back', vitamins_path %>
+    <%= render 'form', vitamin: @vitamin %>
+   
+    <%= link_to 'Back', vitamins_path, class: "btn btn-outline-secondary btn-block" %>
+  </div>
+</div>

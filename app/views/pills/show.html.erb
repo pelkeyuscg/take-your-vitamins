@@ -4,17 +4,10 @@
       Pill #<%= @pill.id %> details
     </h1>
 
-
-<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-
     <div>
-      <div>
-        <%= link_to "Go Back", pills_path%>">
-      </div>
-
-      <div>
-        <%= link_to "Delete Pill", pill_path(@pill.id) %>
-      </div>
+<%= link_to 'Edit', edit_pill_path(@pill) %> |
+<%= link_to "Delete pill", pill_path(@pill.id), method: :delete, data: { confirm: 'Are you sure?' }%> |
+<%= link_to 'Go back', pills_path %>
     </div>
 
     <dl>
@@ -101,63 +94,5 @@
 <hr>
 
 
-<div>
-  <div>
-    <h2>
-      Edit pill
-    </h2>
-
-    <form action="<%edit_pill_path(@pill.id) %>"  method="post" >
-      <div>
-        <%= label_tag :vitamin_id %>
-        <input type="text" id="vitamin_id" name="vitamin_id" value="<%= @pill.vitamin_id %>">
-      </div>
-
-      <div>
-        <%= label_tag :owner_id %>
-        <input type="text" id="owner_id" name="owner_id" value="<%= @pill.owner_id %>">
-      </div>
-
-      <div>
-        <%= label_tag :brand %>
-        <input type="text" id="brand" name="brand" value="<%= @pill.brand %>">
-      </div>
-
-      <div>
-        <%= label_tag :description %>
-        <input type="text" id="description" name="description" value="<%= @pill.description %>">
-      </div>
-
-      <div>
-        <%= label_tag :ingredients %>
-        <input type="text" id="ingredients" name="ingredients" value="<%= @pill.ingredients %>">
-      </div>
-
-      <div>
-        <%= label_tag :quantity %>
-        <input type="text" id="quantity" name="quantity" value="<%= @pill.quantity %>">
-      </div>
-
-      <div>
-        <%= label_tag :upc %>
-        <input type="text" id="upc" name="upc" value="<%= @pill.upc %>">
-      </div>
-
-      <div>
-        <%= label_tag :order_more %>
-        <input type="text" id="order_more" name="order_more" value="<%= @pill.order_more %>">
-      </div>
-
-      <div>
-        <%= label_tag :pill_takens_count %>
-        <input type="text" id="pill_takens_count" name="pill_takens_count" value="<%= @pill.pill_takens_count %>">
-      </div>
-
-      <button>
-        Update pill
-      </button>
-    </form>
-  </div>
-</div>
 
 <hr>
